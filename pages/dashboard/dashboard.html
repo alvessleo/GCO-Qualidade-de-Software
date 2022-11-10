@@ -1,118 +1,236 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../css/dashboard/dashboard.css">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../../css/dashboardnavbar/dashboard.css">
+  <link rel="stylesheet" href="../../css/dashboard/dashboard.css">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://kit.fontawesome.com/65ea520fa5.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
 <body>
   <div class="sidebar">
     <div class="logo-details">
       <i class='bx bxl-c-plus-plus icon'></i>
-        <div class="logo_name">BES Dashboard</div>
-        <i class='bx bx-menu' id="btn" ></i>
+      <div class="logo_name">BES Dashboard</div>
+      <i class='bx bx-menu' id="btn"></i>
     </div>
     <ul class="nav-list">
       <li>
-          <i class='bx bx-search' ></i>
-         <input type="text" placeholder="Search...">
-         <span class="tooltip">Procurar</span>
+        <i class='bx bx-search'></i>
+        <input type="text" placeholder="Search...">
+        <span class="tooltip">Procurar</span>
       </li>
       <li>
         <a href="#">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">Dashboard</span>
         </a>
-         <span class="tooltip">Dashboard</span>
+        <span class="tooltip">Dashboard</span>
       </li>
       <li>
-       <a href="#">
-         <i class='bx bx-user' ></i>
-         <span class="links_name">User</span>
-       </a>
-       <span class="tooltip">User</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-chat' ></i>
-         <span class="links_name">Messages</span>
-       </a>
-       <span class="tooltip">Messages</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-pie-chart-alt-2' ></i>
-         <span class="links_name">Analytics</span>
-       </a>
-       <span class="tooltip">Analytics</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-folder' ></i>
-         <span class="links_name">File Manager</span>
-       </a>
-       <span class="tooltip">Files</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-cart-alt' ></i>
-         <span class="links_name">Order</span>
-       </a>
-       <span class="tooltip">Order</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-heart' ></i>
-         <span class="links_name">Saved</span>
-       </a>
-       <span class="tooltip">Saved</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-cog' ></i>
-         <span class="links_name">Settings</span>
-       </a>
-       <span class="tooltip">Settings</span>
-     </li>
-     <li class="profile">
-         <div class="profile-details">
-           <!--<img src="profile.jpg" alt="profileImg">-->
-           <div class="name_job">
-             <div class="name">Kelly Bettio</div>
-             <div class="job">Analista de qualidade</div>
-           </div>
-         </div>
-         <i class='bx bx-log-out' id="log_out" ></i>
-     </li>
+        <a href="#">
+          <i class='bx bx-user'></i>
+          <span class="links_name">User</span>
+        </a>
+        <span class="tooltip">User</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-chat'></i>
+          <span class="links_name">Messages</span>
+        </a>
+        <span class="tooltip">Messages</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-pie-chart-alt-2'></i>
+          <span class="links_name">Analytics</span>
+        </a>
+        <span class="tooltip">Analytics</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-folder'></i>
+          <span class="links_name">File Manager</span>
+        </a>
+        <span class="tooltip">Files</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-cart-alt'></i>
+          <span class="links_name">Order</span>
+        </a>
+        <span class="tooltip">Order</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-heart'></i>
+          <span class="links_name">Saved</span>
+        </a>
+        <span class="tooltip">Saved</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-cog'></i>
+          <span class="links_name">Settings</span>
+        </a>
+        <span class="tooltip">Settings</span>
+      </li>
+      <li class="profile">
+        <div class="profile-details">
+          <!--<img src="profile.jpg" alt="profileImg">-->
+          <div class="name_job">
+            <div class="name">Kelly Bettio</div>
+            <div class="job">Analista de qualidade</div>
+          </div>
+        </div>
+        <i class='bx bx-log-out' id="log_out"></i>
+      </li>
     </ul>
   </div>
+
+  <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= CONTEÚDO HOME DASHBOARD -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+  
   <section class="home-section">
-      <div class="text">Dashboard</div>
+    <div class="home-section-title">Dashboard</div>
+
+    <div class="cards-content">
+
+      <div class="cards">
+        <div class="number">15</div>
+        <div class="text-card">Conformidades</div>
+      </div>
+
+      <div class="cards">
+        <div class="number">5</div>
+        <div class="text-card">Não conformidades</div>
+      </div>
+
+      <div class="cards">
+        <div class="number">78,5%</div>
+        <div class="text-card">Aderencia</div>
+      </div>
+
+    </div>
+
+    <div class="funcionarios-content">
+
+      <h2 class="title">Não conformidades</h2>
+
+      <div class="faq">
+        <div class="func-collapse">
+          <div class="info">
+            <p><span>Responsável:</span> Gustavo Guimarães Martins</p>
+            <p><span>Data entrega:</span> 19/11/2022</p>
+          </div>
+          <i class="fas fa-regular fa-chevron-down"></i>
+        </div>
+        <div class="func-dados">
+          <p class="text-collapse"><span>Não conformidade:</span> Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Numquam, repellat. Mollitia velit porro consequatur perspiciatis est earum totam autem id vitae, tenetur
+            commodi laboriosam voluptatum facere laudantium aliquam? Praesentium, impedit!</p>
+
+          <div class="gravidade">
+            <span>Gravidade:</span>
+            <div class="cor simples1">
+              <p>Simples</p>
+              <div class="circulo simples2"></div>
+            </div>
+          </div>
+
+          <p class="text-collapse"><span>Sugestão para correção:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Quae aliquam fuga facilis placeat quibusdam aperiam tenetur pariatur? Magni eos labore minima fuga. Magnam
+            corporis esse architecto et dicta suscipit. In.</p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <div class="func-collapse">
+          <div class="info">
+            <p><span>Responsável:</span> Gustavo Guimarães Martins</p>
+            <p><span>Data entrega:</span> 19/11/2022</p>
+          </div>
+          <i class="fas fa-regular fa-chevron-down"></i>
+        </div>
+        <div class="func-dados">
+          <p class="text-collapse"><span>Não conformidade:</span> Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Numquam, repellat. Mollitia velit porro consequatur perspiciatis est earum totam autem id vitae, tenetur
+            commodi laboriosam voluptatum facere laudantium aliquam? Praesentium, impedit!</p>
+
+          <div class="gravidade">
+            <span>Gravidade:</span>
+            <div class="cor medio1">
+              <p>Média</p>
+              <div class="circulo medio2"></div>
+            </div>
+          </div>
+
+          <p class="text-collapse"><span>Sugestão para correção:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Quae aliquam fuga facilis placeat quibusdam aperiam tenetur pariatur? Magni eos labore minima fuga. Magnam
+            corporis esse architecto et dicta suscipit. In.</p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <div class="func-collapse">
+          <div class="info">
+            <p><span>Responsável:</span> Gustavo Guimarães Martins</p>
+            <p><span>Data entrega:</span> 19/11/2022</p>
+          </div>
+          <i class="fas fa-regular fa-chevron-down"></i>
+        </div>
+        <div class="func-dados">
+          <p class="text-collapse"><span>Não conformidade:</span> Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Numquam, repellat. Mollitia velit porro consequatur perspiciatis est earum totam autem id vitae, tenetur
+            commodi laboriosam voluptatum facere laudantium aliquam? Praesentium, impedit!</p>
+
+          <div class="gravidade">
+            <span>Gravidade:</span>
+            <div class="cor complexo1">
+              <p>Complexa</p>
+              <div class="circulo complexo2"></div>
+            </div>
+          </div>
+
+          <p class="text-collapse"><span>Sugestão para correção:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Quae aliquam fuga facilis placeat quibusdam aperiam tenetur pariatur? Magni eos labore minima fuga. Magnam
+            corporis esse architecto et dicta suscipit. In.</p>
+        </div>
+      </div>
+
+    </div>
   </section>
+
+
+  <script src="../../js/collapse.js"></script>
   <script>
-  let sidebar = document.querySelector(".sidebar");
-  let closeBtn = document.querySelector("#btn");
-  let searchBtn = document.querySelector(".bx-search");
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+    let searchBtn = document.querySelector(".bx-search");
 
-  closeBtn.addEventListener("click", ()=>{
-    sidebar.classList.toggle("open");
-    menuBtnChange();//calling the function(optional)
-  });
+    closeBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("open");
+      menuBtnChange();//calling the function(optional)
+    });
 
-  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-    sidebar.classList.toggle("open");
-    menuBtnChange(); //calling the function(optional)
-  });
+    searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
+      sidebar.classList.toggle("open");
+      menuBtnChange(); //calling the function(optional)
+    });
 
-  // following are the code to change sidebar button(optional)
-  function menuBtnChange() {
-   if(sidebar.classList.contains("open")){
-     closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-   }else {
-     closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
-   }
-  }
+    // following are the code to change sidebar button(optional)
+    function menuBtnChange() {
+      if (sidebar.classList.contains("open")) {
+        closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+      } else {
+        closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
+      }
+    }
   </script>
 </body>
+
 </html>
