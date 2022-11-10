@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist</title>
+    <link rel="stylesheet" href="../../css/checklist/checklist.css">
+    <script src="https://kit.fontawesome.com/65ea520fa5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <h1 class="title-table">Não Conformidades</h1>
+
+    <div class="checklist-content">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Gravidade</th>
+                    <th>Sugestão de Correção</th>
+                    <th>Responsável</th>
+                    <th>Prazo</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Simples</td>
+                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum et consectetur, qui sapiente,
+                        impedit in quos placeat, saepe nulla dicta quibusdam repellendus corporis soluta nemo at aperiam
+                        amet magni ducimus.</td>
+                    <td>Gustavo Guimarães</td>
+                    <td>19/11/2022</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>
+                        <select name="" id="">
+                            <option value="Simples">Simples</option>
+                            <option value="Média">Média</option>
+                            <option value="Complexa">Complexa</option>
+                        </select>
+                    </td>
+                    <td>
+                        <textarea name="Item" id="textareaItem" placeholder="Insira o Item"></textarea>
+                    </td>
+                    <td>
+                        <select name="" id="">
+                            <option value="Simples">Gustavo Guimarães</option>
+                            <option value="Média">Leonardo Alves</option>
+                            <option value="Complexa">Pedro Henrique Galvão</option>
+                        </select>
+                    </td>
+                    <td>19/11/2022</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="plus-icon-content">
+        <div class="plus-icon"><i class="fas fa-light fa-plus"></i></div>
+    </div>
+
+    <script>
+        const textarea = document.querySelector("textarea");
+
+        textarea.addEventListener("keyup", e => {
+            textarea.style.height = "59px";
+            let scHeight = e.target.scrollHeight;
+            textarea.style.height = `${scHeight}px`;
+        });
+
+    </script>
+
+</body>
+
+</html>

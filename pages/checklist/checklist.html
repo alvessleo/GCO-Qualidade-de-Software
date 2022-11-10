@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist</title>
+    <link rel="stylesheet" href="../../css/checklist/checklist.css">
+    <script src="https://kit.fontawesome.com/65ea520fa5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <h1 class="title-table">Checklist</h1>
+
+    <div class="checklist-content">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Item</th>
+                    <th>Conformidade</th>
+                    <th>Comentário</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Leo VERME</td>
+                    <td>Aplica</td>
+                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dignissimos reprehenderit vitae
+                        itaque ullam maxime aliquam. Debitis ipsa incidunt quia consectetur laborum repellendus saepe.
+                        Accusantium similique necessitatibus nisi quam dolores?</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><textarea name="Item" id="textareaItem" placeholder="Insira o Item"></textarea></td>
+                    <td>
+                        <select name="" id="">
+                            <option value="Aplica">Aplica</option>
+                            <option value="Não Aplica">Não Aplica</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                    </td>
+                    <td><textarea name="Comentario" id="textareaComentario" placeholder="Insira o Comentário"></textarea></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="plus-icon-content">
+            <div class="plus-icon"><i class="fas fa-light fa-plus"></i></div>
+    </div>
+
+    <script>
+        const textarea = document.querySelector("textarea");
+
+        textarea.addEventListener("keyup", e => {
+            textarea.style.height = "59px";
+            let scHeight = e.target.scrollHeight;
+            textarea.style.height = `${scHeight}px`;
+        });
+
+    </script>
+
+</body>
+
+</html>
