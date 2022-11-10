@@ -65,6 +65,20 @@ form{
 	margin-bottom: 25px;
 }
 
+.login-content .logo-login{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #11101D;
+	font-size: 21px;
+}
+
+.login-content .bxl-c-plus-plus{
+	font-size: 2em;
+	color: #11101D;
+	margin-right: 5px;
+}
+
 .login-content .input-div{
 	position: relative;
     display: grid;
