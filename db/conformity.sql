@@ -16,7 +16,7 @@ CREATE TABLE usuario
 (
     codigo_usuario INT UNSIGNED AUTO_INCREMENT NOT NULL,
     nome VARCHAR(64) NOT NULL,
-    usuario VARCHAR(64) NOT NULL,
+    usuario VARCHAR(64) NOT NULL UNIQUE,
     senha VARCHAR(256),
 
     PRIMARY KEY(codigo_usuario)
@@ -25,7 +25,10 @@ CREATE TABLE usuario
 CREATE TABLE empresa
 (
     codigo_empresa INT UNSIGNED AUTO_INCREMENT NOT NULL,
+    codigo_criador INT UNSIGNED NOT NULL,
     nome VARCHAR(64) NOT NULL,
+
+    FOREIGN KEY(codigo_criador) REFERENCES usuario(codigo_usuario),
 
     PRIMARY KEY(codigo_empresa)
 );
@@ -100,8 +103,8 @@ CREATE TABLE usuario_empresa
     codigo_usuario INT UNSIGNED NOT NULL,
     codigo_empresa INT UNSIGNED NOT NULL,
 
-    cargo VARCHAR(64),
-    auditor BOOLEAN NOT NULL,
+    cargo VARCHAR(64) DEFAULT NULL,
+    auditor BOOLEAN DEFAULT FALSE NOT NULL,
 
     FOREIGN KEY(codigo_usuario) REFERENCES usuario(codigo_usuario),
 	FOREIGN KEY(codigo_empresa) REFERENCES empresa(codigo_empresa),
