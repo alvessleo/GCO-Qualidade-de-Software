@@ -97,9 +97,27 @@
 
     </div>
 
-    <div class="funcionarios-content">
+    <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= CONTEÚDO GRÁFICOS -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
 
-      <h2 class="title">Não conformidades</h2>
+    <div class="graph-opt">
+      <p>Vizualizar Gráfico</p>
+      <button id="conformidades-btn" onclick="graficoConformidades()">Conformidades / Não Conformidades</button>
+      <button id="funcionarios-btn" onclick="graficoFuncionarios()">Funcionarios (N.º Não Conformidades)</button>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="graphicconform" width="700" height="250"></canvas>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="graphicbars" width="700" height="250"></canvas>
+    </div>
+
+    <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= CONTEÚDO NÃO CONFORMIDADES -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+
+    <h2 class="title">Não conformidades</h2>
+
+    <div class="funcionarios-content">
 
       <div class="faq">
         <div class="func-collapse">
@@ -131,8 +149,8 @@
       <div class="faq">
         <div class="func-collapse">
           <div class="info">
-            <p><span>Responsável:</span> Gustavo Guimarães Martins</p>
-            <p><span>Data entrega:</span> 19/11/2022</p>
+            <p><span>Responsável:</span> Leonardo Fernandes Alves</p>
+            <p><span>Data entrega:</span> 20/11/2022</p>
           </div>
           <i class="fas fa-regular fa-chevron-down"></i>
         </div>
@@ -158,8 +176,8 @@
       <div class="faq">
         <div class="func-collapse">
           <div class="info">
-            <p><span>Responsável:</span> Gustavo Guimarães Martins</p>
-            <p><span>Data entrega:</span> 19/11/2022</p>
+            <p><span>Responsável:</span> Vinícius Valentin Nogozzeky</p>
+            <p><span>Data entrega:</span> 25/11/2022</p>
           </div>
           <i class="fas fa-regular fa-chevron-down"></i>
         </div>
@@ -186,7 +204,10 @@
   </section>
 
 
+  <script src="../../js/graphics.js"></script>
   <script src="../../js/collapse.js"></script>
+  <script src="../../js/graphicBtns.js"></script>
+  
   <script>
     let sidebar = document.querySelector(".sidebar");
     let closeBtn = document.querySelector("#btn");
