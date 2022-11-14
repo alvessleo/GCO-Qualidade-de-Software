@@ -35,12 +35,13 @@ body{
 	color: #fff;
 	padding: 5px 35px;
 	//display: none;
+	animation: error 1s forwards;
 
-	.messages{
+	/*.messages{
 		.message-error{
 			display: none;
 		}
-	}
+	}*/
 
 	.button{
 		font-size: 1.6em;
@@ -276,5 +277,17 @@ a:hover{
 
 	.login-content{
 		justify-content: center;
+	}
+}
+
+// ANIMACAO
+
+@keyframes error{
+	from{
+		opacity: 0;
+
+	}to{
+		opacity: 1;
+		transform: translateY(70px);
 	}
 }
