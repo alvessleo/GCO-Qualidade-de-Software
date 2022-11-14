@@ -1,6 +1,6 @@
 <?php
-include_once($_SERVER["DOCUMENT_ROOT"] . '/api/auxiliar.php');
-verificarArgumentos($_POST, 'nome', 'usuario', 'senha');
+include_once($_SERVER['DOCUMENT_ROOT'] . '/api/cabecalhos.php');
+verificarArgumentos($_POST, true, 'nome', 'usuario', 'senha');
 
 try
 {

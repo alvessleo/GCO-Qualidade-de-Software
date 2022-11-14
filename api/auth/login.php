@@ -1,6 +1,6 @@
 <?php
-include_once($_SERVER["DOCUMENT_ROOT"] . '/api/auxiliar.php');
-verificarArgumentos($_POST, 'usuario', 'senha');
+include_once($_SERVER['DOCUMENT_ROOT'] . '/api/cabecalhos.php');
+verificarArgumentos($_POST, true, 'usuario', 'senha');
 
 try
 {
@@ -17,7 +17,6 @@ try
             $linha = $dados_resultado->fetch_assoc();
             if (password_verify($_POST['senha'], $linha['senha']))
             {
-                session_start();
                 $_SESSION['codigo_usuario'] = $linha['codigo_usuario'];
                 $_SESSION['nome'] = $linha['nome'];
                 $_SESSION['usuario'] = $linha['usuario'];
