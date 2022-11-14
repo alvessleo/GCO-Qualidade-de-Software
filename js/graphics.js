@@ -7,18 +7,18 @@ const myChart = new Chart(ctx, {
             label: 'Funcionários com o maior número de Não conformidades',
             data: [12, 19, 3, 5, 2],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
+                'rgba(47, 48, 97, 0.2)',
+                'rgba(35, 100, 170, 0.2)',
+                'rgba(249, 166, 32, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)'
+                'rgba(96, 165, 97, 0.2)'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
+                'rgba(47, 48, 97, 1)',
+                'rgba(35, 100, 170, 1)',
+                'rgba(249, 166, 32, 1)',
                 'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)'
+                'rgba(96, 165, 97, 1)'
             ],
             borderWidth: 1
         }]
@@ -54,12 +54,12 @@ const myChart3 = new Chart(ctx3, {
             label: 'Conformidade / Não Conformidade',
             data: [15, 5],
             backgroundColor: [
-                'rgba(99, 255, 120, 0.2)',
-                'rgba(235, 54, 99, 0.2)'
+                'rgba(27, 65, 121, 0.34)',
+                'rgba(79, 109, 122, 0.31)'
             ],
             borderColor: [
-                'rgba(99, 255, 120, 1)',
-                'rgba(235, 54, 99, 1)'
+                'rgba(27, 65, 121, 1)',
+                'rgba(79, 109, 122, 1)'
             ],
             borderWidth: 1
         }]
