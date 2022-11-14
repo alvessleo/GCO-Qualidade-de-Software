@@ -26,6 +26,31 @@ body{
 	align-items: center;
 }
 
+.alerts{
+	position: absolute;
+	transform: translateY(30px);
+	display: flex;
+	align-items: center;
+	background-color: rgb(197, 8, 8);
+	color: #fff;
+	padding: 5px 35px;
+	//display: none;
+
+	.messages{
+		.message-error{
+			display: none;
+		}
+	}
+
+	.button{
+		font-size: 1.6em;
+		margin-right: 20px;
+		&:hover{
+			cursor: pointer;
+		}
+	}
+}
+
 .login-content{
 	display: flex;
 	justify-content: center;
@@ -207,6 +232,11 @@ a:hover{
 	background-position: right;
 	background-color: #625f81;
 	color: #fff;
+}
+
+.btn:disabled{
+	color: #000;
+	background-color: #6a6a6a;
 }
 
 
