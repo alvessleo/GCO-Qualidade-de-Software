@@ -7,15 +7,9 @@
 body{
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
+	background-color:rgb(18, 18, 20);
 }
 
-.wave{
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	height: 100%;
-	z-index: -1;
-}
 
 .container{
     width: 100vw;
@@ -38,11 +32,12 @@ body{
 	align-items: center;
 	text-align: center;
     align-self: center;
-    border: 1px solid #11101D;
+	background-color: #202024;
+	border-radius: 10px;
     height: 100%;
-    max-height: 700px;
+    max-height: 680px;
     width: 100%;
-    max-width: 500px;
+    max-width: 490px;
 }
 
 .img img{
@@ -59,7 +54,7 @@ form{
 
 .login-content h2{
 	margin: 15px 0 55px 0;
-	color: #333;
+	color: #fff;
 	font-size: 2.6rem;
 	font-weight: 400;
     line-height: 1;
@@ -78,11 +73,12 @@ form{
 	align-items: center;
 	color: #11101D;
 	font-size: 21px;
+	color: #fff;
 }
 
 .login-content .bx-loader-circle{
 	font-size: 2em;
-	color: #11101D;
+	color: #fff;
 	margin-right: 5px;
 }
 
@@ -93,6 +89,7 @@ form{
     margin: 25px 0;
     padding: 5px 0;
     border-bottom: 2px solid #d9d9d9;
+	color: #FFF;
 }
 
 
@@ -142,7 +139,7 @@ form{
 	bottom: -2px;
 	width: 0%;
 	height: 2px;
-	background-color: #11101D;
+	background-color: rgb(132, 0, 255);;
 	transition: .4s;
 }
 
@@ -164,7 +161,7 @@ form{
 }
 
 .input-div.focus > .i > i{
-	color: #11101D;
+	color: rgb(132, 0, 255);;
 }
 
 
@@ -205,11 +202,10 @@ a:hover{
 	display: block;
 	width: 100%;
 	height: 50px;
-	border-radius: 25px;
+	border-radius: 10px;
 	outline: none;
 	border: none;
-	background-image: linear-gradient(to right, #1c1a2f, #1c1a2f, #1c1a2f);
-	background-size: 200%;
+	background-color: rgb(132, 0, 255);
 	font-size: 1.1rem;
 	color: #fff;
 	font-family: 'Poppins', sans-serif;
@@ -223,6 +219,19 @@ a:hover{
 	background-position: right;
 }
 
+.term{
+	margin-top: 65px;
+	p{
+		color: #d9d9d9;
+	}
+
+	span{
+		color: rgb(132, 0, 255);
+		&:hover{
+			cursor: pointer;
+		}
+	}
+}
 
 @media screen and (max-width: 1050px){
 	.container{
