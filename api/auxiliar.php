@@ -51,5 +51,8 @@ function executarQuery($sql, $tipos = null, ...$valores)
 	if (!is_null($tipos))
     	$query->bind_param($tipos, ...$valores);
 
-    return $query->execute();
+	if ($query->execute())
+		return $query;
+
+    return null;
 }
