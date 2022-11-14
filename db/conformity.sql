@@ -74,7 +74,7 @@ CREATE TABLE itemChecklist
     codigo_checklist INT UNSIGNED NOT NULL,
     codigo_estado INT UNSIGNED NOT NULL,
     item VARCHAR(256) NOT NULL,
-    comentario VARCHAR(1024) NOT NULL,
+    comentario VARCHAR(1024) DEFAULT '',
 
     FOREIGN KEY(codigo_checklist) REFERENCES checklist(codigo_checklist),
     FOREIGN KEY(codigo_estado) REFERENCES estadoItemChecklist(codigo_estadoItemChecklist),
