@@ -91,17 +91,6 @@ form {
   color: #FFF;
 }
 
-.login-content .input-checkbox {
-  position: relative;
-  display: grid;
-  grid-template-columns: 7% 93%;
-  margin: 25px 0;
-  gap: 1em;
-  text-align: left;
-  padding: 5px 0;
-  color: #FFF;
-}
-
 .login-content form .input-radio {
   display: flex;
   justify-content: space-around;
@@ -269,4 +258,4 @@ a:hover {
   .login-content {
     justify-content: center;
   }
-}/*# sourceMappingURL=cadastro.css.map */
+}/*# sourceMappingURL=empresa_cadastro.css.map */
