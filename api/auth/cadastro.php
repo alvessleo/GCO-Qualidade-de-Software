@@ -1,21 +1,16 @@
 <?php
-include_once('../auxiliar.php');
+include_once($_SERVER["DOCUMENT_ROOT"] . '/api/auxiliar.php');
+verificarArgumentos($_POST, 'nome', 'usuario', 'senha');
 
-if (!isset($_POST['nome'], $_POST['usuario'], $_POST['senha']))
-    respostaJson(array('erro' => 'Nome, login ou senha não recebidos'), 400);
-
-include_once('../../db/config.php');
 try
 {
-    $query = $conexao->prepare('INSERT INTO `usuario` (`nome`, `usuario`, `senha`) VALUES (?, ?, ?)');
-    
-    $nome = $_POST['nome'];
-    $usuario = $_POST['usuario'];
-    $senha_hash = password_hash($_POST['senha'], PASSWORD_DEFAULT);
-    
-    $query->bind_param('sss', $nome, $usuario, $senha_hash);
-    
-    $resultado = $query->execute();
+    $resultado = executarQuery(
+        'INSERT INTO `usuario` (`nome`, `usuario`, `senha`) VALUES (?, ?, ?)', 
+        'sss', // 'sss' = string, string, string: Um caractere para cada tipo de variável do BD.
+        $_POST['nome'],
+        $_POST['usuario'],
+        password_hash($_POST['senha'], PASSWORD_DEFAULT),
+    );
 
     if ($resultado) 
         respostaJson(null, 201);
@@ -33,8 +28,7 @@ catch (mysqli_sql_exception $e)
         default:
             respostaJson(array('erro' => 'Erro desconhecido'), 500);
             break;
+
     }
     
 }
-
-$conexao->close();
