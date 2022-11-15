@@ -20,7 +20,7 @@
   justify-content: center;
   padding: 40px 40px;
   border-radius: 5px;
-  transform: translateY(50%);
+  transform: translateY(5%);
 }
 .home-section .form-funcionario .content .close i {
   font-size: 2em;
