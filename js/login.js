@@ -1,20 +1,29 @@
-const inputs = document.querySelectorAll(".input");
+import { chamadaAPI } from './api.js';
+import { mostrarErro, botoesMaterial } from './auxiliar.js';
 
+botoesMaterial();
 
-function addcl(){
-	let parent = this.parentNode.parentNode;
-	parent.classList.add("focus");
-}
+document.getElementById("form-login").addEventListener("submit", (evento) => {
 
-function remcl(){
-	let parent = this.parentNode.parentNode;
-	if(this.value == ""){
-		parent.classList.remove("focus");
-	}
-}
+	evento.preventDefault();
 
+	let usuario = document.getElementById("usuario").value;
+	let senha = document.getElementById("senha").value;
 
-inputs.forEach(input => {
-	input.addEventListener("focus", addcl);
-	input.addEventListener("blur", remcl);
-});
+	chamadaAPI("auth/login.php", {"usuario": usuario, "senha": senha}).then(resp => {
+
+		if (resp.ok)
+		{
+			window.location.replace("/pages/dashboard/dashboard.html");
+		}
+		else
+		{
+			resp.json().then(json => {
+				mostrarErro(json.erro);
+			})
+		}
+		
+	})
+	
+})
+

@@ -1,9 +1,16 @@
 <?php
+// Permite o recebimento de json no corpo como se fosse x-www-form-urlencoded
+function receberJson()
+{
+	if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SERVER["CONTENT_TYPE"] == 'application/json')
+		$_POST = json_decode(file_get_contents('php://input'), true); 
+}
+
 // Termina a execução mandando uma resposta json, obtida de uma array do PHP
 function respostaJson($arrayPHP = null, $codigoHTTP = 200)
 {
 	// header_remove(); // destrói sessão
-    header("Content-Type: application/json");
+    header('Content-Type: application/json');
    
 	http_response_code($codigoHTTP);
 	echo json_encode($arrayPHP);

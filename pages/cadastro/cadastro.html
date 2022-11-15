@@ -6,32 +6,37 @@
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
 </head>
 <body>
 	<div class="container">
-		<div class="alerts">
+		<div id="alerts" class="alerts" style="display: none;">
 			<div class="button"><i class='bx bxs-x-circle'></i></div>
 			<div class="messages">
-				<div id="nome-invalido-cadastro" class="message-error">Nome é inválido</div>
-				<div id="nome-obrigatorio-cadastro" class="massage-error">Nome é obrigatório</div>
-				<div id="senha-invalida-cadastro" class="massage-error">Senha é inválida</div>
-				<div id="senha-obrigatoria-cadastro" class="massage-error">Senha é obrigatorio</div>
-				<div id="confirma-senha-cadastro" class="massage-error">As senhas não condizem</div>
+				<div id="texto-erro" class="message-error">Erro desconhecido</div>
 			</div>
 		</div>
 		<div class="login-content">
-			<form action="index.html">
+			<form id="form-cadastro">
 				<div class="logo-login"><i class='bx bx-loader-circle'></i>Conformity</div>
 
 				<h2 class="title">Realize seu cadastro!</h2>
+				<div class="input-div one">
+					<div class="i">
+						<i class="fas fa-user"></i>
+					</div>
+					<div class="div">
+						<h5>Nome</h5>
+						<input id="nome" type="text" class="input" required>
+					</div>
+				 </div>
            		<div class="input-div one">
            		   <div class="i">
            		   		<i class="fas fa-user"></i>
            		   </div>
            		   <div class="div">
-           		   		<h5>Nome de usuário</h5>
-           		   		<input type="text" class="input">
+           		   		<h5>Login</h5>
+           		   		<input id="usuario" type="text" class="input" required>
            		   </div>
            		</div>
            		<div class="input-div pass">
@@ -40,7 +45,7 @@
            		   </div>
            		   <div class="div">
            		    	<h5>Senha</h5>
-           		    	<input type="password" class="input">
+           		    	<input id="senha" type="password" class="input" required>
             	   </div>
             	</div>
 				<div class="input-div pass">
@@ -49,17 +54,17 @@
 					</div>
 					<div class="div">
 						 <h5>Confirma senha</h5>
-						 <input type="password" class="input">
+						 <input id="confirma-senha" type="password" class="input" required>
 				 </div>
 			  </div>
 				<div class="term">
 					<p>Ao se registrar, você aceita nossos <span>termos de uso</span> e a nossa <span>política de privacidade</span>.</p>
 				</div>
 
-            	<input type="submit" class="btn" value=" Realizar Cadastro">
+            	<input type="submit" class="btn" value="Realizar Cadastro">
             </form>
         </div>
     </div>
-    <script src="../../js/login.js"></script>
+    <script src="../../js/cadastro.js" type="module"></script>
 </body>
 </html>
