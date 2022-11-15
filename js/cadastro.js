@@ -19,19 +19,18 @@ document.getElementById("form-cadastro").addEventListener("submit", (evento) => 
     }
 
 	chamadaAPI("auth/cadastro.php", {"nome": nome, "usuario": usuario, "senha": senha}).then(resp => {
-
 		if (resp.ok)
-		{
 			window.location.replace("/pages/login/login.html");
-		}
 		else
 		{
-			resp.json().then(json => {
-				mostrarErro(json.erro);
-			})
+			if (resp.headers.get("content-type") == "application/json")
+				resp.json().then(json => { mostrarErro(json.erro); });
+			else
+				mostrarErro("Erro API código ".concat(resp.status));	
 		}
-		
-	})
-	
+	}).catch(excecao => {
+		mostrarErro("Erro de comunicação: ".concat(excecao));
+	});
+
 })
 

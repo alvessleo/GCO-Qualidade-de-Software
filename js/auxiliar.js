@@ -1,3 +1,5 @@
+let timeoutErro = null;
+
 function mostrarErro(texto = "Erro desconhecido")
 {
     let alerts = document.getElementById('alerts');
@@ -6,7 +8,10 @@ function mostrarErro(texto = "Erro desconhecido")
     alerts.style.display = "flex";
     textoerro.innerText = texto;
 
-    setTimeout(() => {
+    if(timeoutErro)
+        clearTimeout(timeoutErro);
+
+    timeoutErro = setTimeout(() => {
         alerts.style.display = "none";
     }, 5000);
 }

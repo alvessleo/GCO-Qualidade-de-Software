@@ -11,19 +11,18 @@ document.getElementById("form-login").addEventListener("submit", (evento) => {
 	let senha = document.getElementById("senha").value;
 
 	chamadaAPI("auth/login.php", {"usuario": usuario, "senha": senha}).then(resp => {
-
 		if (resp.ok)
-		{
 			window.location.replace("/pages/dashboard/dashboard.html");
-		}
 		else
 		{
-			resp.json().then(json => {
-				mostrarErro(json.erro);
-			})
+			if (resp.headers.get("content-type") == "application/json")
+				resp.json().then(json => { mostrarErro(json.erro); });
+			else
+				mostrarErro("Erro API código ".concat(resp.status));	
 		}
-		
-	})
+	}).catch(excecao => {
+		mostrarErro("Erro de comunicação: ".concat(excecao));
+	});
 	
 })
 

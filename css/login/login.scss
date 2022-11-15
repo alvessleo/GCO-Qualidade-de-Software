@@ -34,8 +34,9 @@ body{
 	background-color: rgb(197, 8, 8);
 	color: #fff;
 	padding: 5px 35px;
-	//display: none;
+	display: none;
 	animation: error 1s forwards;
+	z-index: 9999;
 
 	/*.messages{
 		.message-error{

@@ -23,7 +23,7 @@ function verificarArgumentos($arrayPHP, $lanca, ...$chaves)
 {
 	foreach ($chaves as $chave)
 	{
-		if (!isset($arrayPHP[$chave]))
+		if (empty($arrayPHP[$chave]))
 			if ($lanca)
 				respostaJson(array('erro' => 'Argumento não recebido: ' . $chave), 400);
 			else
