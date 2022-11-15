@@ -1,9 +1,16 @@
 <?php
+// Permite o recebimento de json no corpo como se fosse x-www-form-urlencoded
+function receberJson()
+{
+	if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SERVER["CONTENT_TYPE"] == 'application/json')
+		$_POST = json_decode(file_get_contents('php://input'), true); 
+}
+
 // Termina a execução mandando uma resposta json, obtida de uma array do PHP
 function respostaJson($arrayPHP = null, $codigoHTTP = 200)
 {
-	header_remove();
-    header("Content-Type: application/json");
+	// header_remove(); // destrói sessão
+    header('Content-Type: application/json');
    
 	http_response_code($codigoHTTP);
 	echo json_encode($arrayPHP);
@@ -12,13 +19,19 @@ function respostaJson($arrayPHP = null, $codigoHTTP = 200)
 }
 
 // Verifica se uma array possuí todas as chaves passadas ou termina a execução
-function verificarArgumentos($arrayPHP, ...$chaves)
+function verificarArgumentos($arrayPHP, $lanca, ...$chaves)
 {
 	foreach ($chaves as $chave)
 	{
 		if (!isset($arrayPHP[$chave]))
-			respostaJson(array('erro' => 'Argumento não recebido: ' . $chave), 400);
+			if ($lanca)
+				respostaJson(array('erro' => 'Argumento não recebido: ' . $chave), 400);
+			else
+				return false;
     }
+
+	if (!$lanca)
+		return true;
 }
 
 // Obtém a conexão em cache ou cria uma nova caso ela não seja válida
