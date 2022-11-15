@@ -1,0 +1,127 @@
+:root
+{
+    --CorPrimaria: #2f2d4a;
+    --CorSecundaria: #625f81;
+
+    --CorTextoNormal: rgb(136, 136, 136);
+    --CorSpan: #525252;
+
+    /* CORES GRAVIDADE */
+    --CorSimples-1: #b8ff8c;
+    --CorSimples-2: #80e144;
+
+    --CorMedia-1: #ffb100;
+    --CorMedia-2: #ff8d00;
+
+    --CorComplexo-1: #ff9a9a;
+    --CorComplexo-2: #df6161;
+}
+
+.home-section-title 
+{
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 20px 20px 50px 0px;
+    color: var(--CorSecundaria);
+}
+
+.empresa-content{
+    .card{
+        display: flex;
+        justify-content: left;
+        .acessar{
+            border: none;
+            background-color: var(--CorPrimaria);
+            color: #fff;
+            padding: 0 30px;
+            border-radius: 10px;
+            max-height: 55px;
+            transform: translate(-25px);
+            font-size: 15px;
+            margin-top: 25px;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+
+
+
+
+}
+
+.faq 
+{
+    width: 48%;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    cursor: pointer;
+    margin-right: 30px;
+}
+
+.func-collapse 
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--CorPrimaria);
+    color: white;
+    padding: 15px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.info span
+{
+    color: white;
+}
+
+.func-collapse .info 
+{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.func-collapse p
+{
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.func-dados 
+{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1.4s ease;
+    border: 1px solid var(--CorPrimaria);
+    border-radius: 0px 0px 10px 10px;
+    padding: 0px 10px;
+}
+
+.func-dados .text-collapse 
+{
+    margin: 15px 0px;
+}
+
+.faq.active .func-dados
+{
+    max-height: 300px;
+    animation: fade 1s ease-in-out;
+}
+
+.faq.active i
+{
+    transform: rotate(180deg);
+}
+
+.faq i 
+{
+    transition: transform .5s ease-in;
+    margin-left: 30px;
+}
+
+span 
+{
+    font-weight: 600;
+    color: #525252;
+}
