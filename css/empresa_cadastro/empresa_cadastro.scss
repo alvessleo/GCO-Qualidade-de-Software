@@ -26,6 +26,32 @@ body{
 	align-items: center;
 }
 
+.alerts{
+	position: absolute;
+	transform: translateY(30px);
+	display: flex;
+	align-items: center;
+	background-color: rgb(197, 8, 8);
+	color: #fff;
+	padding: 5px 35px;
+	//display: none;
+	animation: error 1s forwards;
+
+	/*.messages{
+		.message-error{
+			display: none;
+		}
+	}*/
+
+	.button{
+		font-size: 1.6em;
+		margin-right: 20px;
+		&:hover{
+			cursor: pointer;
+		}
+	}
+}
+
 .login-content{
 	display: flex;
 	justify-content: center;
@@ -272,5 +298,19 @@ a:hover{
 
 	.login-content{
 		justify-content: center;
+	}
+}
+
+
+
+// ANIMACAO
+
+@keyframes error{
+	from{
+		opacity: 0;
+
+	}to{
+		opacity: 1;
+		transform: translateY(50px);
 	}
 }

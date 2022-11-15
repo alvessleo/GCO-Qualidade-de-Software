@@ -33,9 +33,13 @@ body {
   background-color: rgb(197, 8, 8);
   color: #fff;
   padding: 5px 35px;
-}
-.alerts .messages .message-error {
-  display: none;
+  -webkit-animation: error 1s forwards;
+          animation: error 1s forwards;
+  /*.messages{
+  	.message-error{
+  		display: none;
+  	}
+  }*/
 }
 .alerts .button {
   font-size: 1.6em;
@@ -261,5 +265,23 @@ a:hover {
   }
   .login-content {
     justify-content: center;
+  }
+}
+@-webkit-keyframes error {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(70px);
+  }
+}
+@keyframes error {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(70px);
   }
 }/*# sourceMappingURL=login.css.map */
