@@ -76,6 +76,34 @@
   <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= CONTEÚDO MINHA EMPRESA -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
   
   <section class="home-section">
+    <div class="form-funcionario">
+        <div class="content">
+            <div class="close">
+                <i class='bx bx-x'></i>
+            </div>
+            <form action="">
+                <h2>Adicione um funcionário a empresa!</h2>
+                <p>
+                    <label for="select-funcionarios">Selecione um funcionário:</label><br>
+                    <select name="select-funcionarios" id="select-funcionarios">
+                        <option value="funcionarioX">Luiz</option>
+                        <option value="funcionarioX">Leo</option>
+                        <option value="funcionarioX">Vini</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="cargo">Insira o cargo:</label><br>
+                    <input class="input" type="text" id="cargo" placeholder="Cargo aqui">
+                </p>
+                <p>
+                    <label for="auditor-new-funcionario">É auditor?</label><br>
+                    <input id="auditor-new-funcionario" type="checkbox">
+                </p>
+                <button type="submit" id="add-func" class="add-func">Adicionar funcionario</button>
+            </form>
+        </div>
+
+    </div>
     <div class="container">
         <div class="company-info">
             <div class="img">
@@ -121,7 +149,7 @@
         </div>
     </div>  
   </section>
-  
+  <script src="../../js/minha_empresa.js"></script>
   <script>
     let sidebar = document.querySelector(".sidebar");
     let closeBtn = document.querySelector("#btn");
@@ -146,6 +174,7 @@
       }
     }
   </script>
+  
 </body>
 
 </html>

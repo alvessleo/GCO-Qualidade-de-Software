@@ -1,3 +1,58 @@
+.home-section .form-funcionario {
+  display: none;
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.home-section .form-funcionario .content {
+  background-color: #fff;
+  margin: auto;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 40px;
+  border-radius: 5px;
+  transform: translateY(50%);
+}
+.home-section .form-funcionario .content .close i {
+  font-size: 2em;
+  position: absolute;
+  transform: translate(-20px, -30px);
+}
+.home-section .form-funcionario .content .close i:hover {
+  cursor: pointer;
+}
+.home-section .form-funcionario .content form h2 {
+  margin-bottom: 15px;
+  margin-top: 30px;
+}
+.home-section .form-funcionario .content form p {
+  margin-bottom: 15px;
+}
+.home-section .form-funcionario .content form p select {
+  width: 100%;
+}
+.home-section .form-funcionario .content form p .input {
+  width: 100%;
+}
+.home-section .form-funcionario .content form button {
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #1d1b31;
+}
+.home-section .form-funcionario .content form button:hover {
+  cursor: pointer;
+}
 .home-section .container {
   margin-top: 3em;
 }
