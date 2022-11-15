@@ -1,5 +1,11 @@
-import { chamadaAPI } from './api.js';
+import { chamadaAPI, dadosSessao } from './api.js';
 import { mostrarErro, botoesMaterial } from './auxiliar.js';
+
+dadosSessao().then(res => {
+	if (res)
+		window.location.replace("/pages/dashboard/dashboard.html");
+})
+
 
 botoesMaterial();
 
@@ -18,19 +24,18 @@ document.getElementById("form-cadastro").addEventListener("submit", (evento) => 
         return;
     }
 
-	chamadaAPI("auth/cadastro.php", {"nome": nome, "usuario": usuario, "senha": senha}).then(resp => {
-		if (resp.ok)
-			window.location.replace("/pages/login/login.html");
-		else
+	chamadaAPI("auth/cadastro.php", {"nome": nome, "usuario": usuario, "senha": senha}).then(res => {
+		if (res.status != 201)
 		{
-			if (resp.headers.get("content-type") == "application/json")
-				resp.json().then(json => { mostrarErro(json.erro); });
+			if ('json' in res && 'erro' in res.json)
+				mostrarErro(res.json.erro);
 			else
-				mostrarErro("Erro API código ".concat(resp.status));	
+				mostrarErro("Erro de status ".concat(res.status));
 		}
-	}).catch(excecao => {
-		mostrarErro("Erro de comunicação: ".concat(excecao));
+		else
+			window.location.replace("/pages/login/login.html");
+
 	});
 
-})
+});
 
