@@ -66,32 +66,11 @@ body {
 .login-content .link-cadastro {
   width: 73%;
   position: relative;
+}
+.login-content .link-cadastro hr {
+  width: 100%;
+  position: absolute;
   margin-top: 10px;
-}
-.login-content .link-cadastro::after {
-  position: absolute;
-  content: "OU CADASTRE-SE";
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  transform: translateY(-10px);
-  color: rgb(255, 255, 255);
-  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 7px;
-  -webkit-text-stroke-color: #1d1b31;
-}
-.login-content .link-cadastro::before {
-  position: absolute;
-  content: "OU CADASTRE-SE";
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  transform: translateY(-10px);
-  color: rgb(255, 255, 255);
-  z-index: 999;
-  font-size: 0.9em;
 }
 .login-content .link-cadastro .btn-cadastro {
   display: block;
@@ -111,6 +90,8 @@ body {
 }
 .login-content .link-cadastro .btn-cadastro:hover {
   cursor: pointer;
+  background-color: #fff;
+  color: #000;
 }
 
 .btn-cadastro:hover {
