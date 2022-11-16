@@ -6,21 +6,18 @@
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
 </head>
 <body>
 	<div class="container">
-		<div class="alerts">
+		<div id="alerts" class="alerts">
 			<div class="button"><i class='bx bxs-x-circle'></i></div>
 			<div class="messages">
-				<div id="nome-invalido-empresa" class="message-error">Nome é inválido</div>
-				<div id="nome-obrigatorio-empresa" class="massage-error">Nome é obrigatório</div>
-				<div id="senha-invalida-empresa" class="massage-error">Senha é inválida</div>
-				<div id="senha-obrigatoria-empresa" class="massage-error">Senha é obrigatorio</div>
+				<div id="texto-erro" class="message-error">Erro desconhecido</div>
 			</div>
 		</div>
 		<div class="login-content">
-			<form action="index.html">
+			<form id="form-cadastro_empresa">
 				<div class="logo-login"><i class='bx bx-loader-circle'></i>Conformity</div>
 
 				<h2 class="title">Cadastre sua empresa</h2>
@@ -30,7 +27,7 @@
            		   </div>
            		   <div class="div">
            		   		<h5>Nome da empresa</h5>
-           		   		<input type="text" class="input">
+           		   		<input id="nome" type="text" class="input" required>
            		   </div>
            		</div>
            		<div class="input-div pass">
@@ -39,11 +36,11 @@
            		   </div>
            		   <div class="div">
            		    	<h5>Cargo</h5>
-           		    	<input type="text" class="input">
+           		    	<input id="cargo" type="text" class="input" required>
             	   </div>
             	</div>
                 <div class="input-checkbox">
-                    <input type="checkbox" id="auditor" name="auditor">
+                    <input id="auditor" auditor type="checkbox" name="auditor">
                     
                     <label for="auditor">Auditor</label>
                 </div>
@@ -52,6 +49,6 @@
             </form>
         </div>
     </div>
-    <script src="../../js/login.js"></script>
+    <script src="/js/empresa_cadastro.js" type="module"></script>
 </body>
 </html>
