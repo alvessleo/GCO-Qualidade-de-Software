@@ -1,3 +1,11 @@
+<?php
+include_once($_SERVER['DOCUMENT_ROOT'] . '/api/cabecalhos.php');
+include_once($_SERVER['DOCUMENT_ROOT'] . '/api-interna/empresa.php');
+
+if (!isset($_SESSION['codigo_usuario']))
+  redirecionar('/pages/login/login.html');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">
 
@@ -12,67 +20,8 @@
 </head>
 
 <body>
-  <div class="sidebar">
-    <div class="logo-details">
-      <i class='bx bx-loader-circle icon'></i>
-      <div class="logo_name">Conformity</div>
-      <i class='bx bx-menu' id="btn"></i>
-    </div>
-    <ul class="nav-list">
-      <li>
-        <i class='bx bx-search'></i>
-        <input type="text" placeholder="Search...">
-        <span class="tooltip">Procurar</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-grid-alt'></i>
-          <span class="links_name">Dashboard</span>
-        </a>
-        <span class="tooltip">Dashboard</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-building'></i>
-          <span class="links_name">Minha empresa</span>
-        </a>
-        <span class="tooltip">Minha empresa</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-check-square' ></i>
-          <span class="links_name">Checklist</span>
-        </a>
-        <span class="tooltip">Checklist</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bxs-analyse bx-flip-horizontal' ></i>
-          <span class="links_name">Não conformidades</span>
-        </a>
-        <span class="tooltip">Não conformidades</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-log-in-circle'></i>
-          <span class="links_name">Login</span>
-        </a>
-        <span class="tooltip">Login</span>
-      </li>
+  <?php carregarComponente('sidebar.php'); ?>
   
-      <li class="profile">
-        <div class="profile-details">
-          <!--<img src="profile.jpg" alt="profileImg">-->
-          <div class="name_job">
-            <div class="name">Kelly Bettio</div>
-            <div class="job">Analista de qualidade</div>
-          </div>
-        </div>
-        <i class='bx bx-log-out' id="log_out"></i>
-      </li>
-    </ul>
-  </div>
-
   <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= CONTEÚDO MINHA EMPRESA -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
   
   <section class="home-section">
@@ -106,14 +55,15 @@
     </div>
     <div class="container">
         <div class="company-info">
-            <div class="img">
-            
-            </div>
             <div class="name-user-company">
                 <h1>Company name</h1>
                 <p class="nome">Leonardo Alves</p>
                 <p class="tag">Diretor</p>
             </div>
+        </div>
+        <div class="artefato-container">
+          <h2>Vizualizar Artefato</h2>
+          <button class="viewArtefatos">Artefatos</button>
         </div>
         <div class="content">
             <div class="header">
@@ -122,7 +72,7 @@
                     <input type="text" placeholder="Pesquisar usuário">
                     <button>Buscar</button>
                 </div>
-                <button>Adicionar funcionário</button>
+                <button id="cadastrarFuncionario">Adicionar funcionário</button>
             </div>
             <table class="funcionarios-list" border="0">
                 <tr>

@@ -18,6 +18,13 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/api/cabecalhos.php');
       </a>
       <span class="tooltip">Empresas</span>
     </li>
+    <li>
+      <a href="/pages/cadastro/empresa_cadastro.html">
+        <i class="fas fa-solid fa-plus"></i>
+        <span class="links_name">Criar Empresa</span>
+      </a>
+      <span class="tooltip">Criar Empresa</span>
+    </li>
 
     <li class="profile">
       <div class="profile-details">
