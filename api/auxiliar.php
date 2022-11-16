@@ -71,8 +71,15 @@ function executarQuery($sql, $tipos = null, ...$valores)
     return null;
 }
 
+// Redireciona página
 function redirecionar($url)
 {
 	header('Location: ' . $url);
 	exit();
+}
+
+// Carrega componente da página /pages/componentes/$componente.html
+function carregarComponente($componente)
+{
+	include($_SERVER['DOCUMENT_ROOT'] . '/pages/componentes/' . $componente);
 }

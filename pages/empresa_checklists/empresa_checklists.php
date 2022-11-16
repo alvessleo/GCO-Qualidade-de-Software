@@ -1,3 +1,11 @@
+<?php
+include_once($_SERVER['DOCUMENT_ROOT'] . '/api/cabecalhos.php');
+include_once($_SERVER['DOCUMENT_ROOT'] . '/api-interna/empresa.php');
+
+if (!isset($_SESSION['codigo_usuario']))
+  redirecionar('/pages/login/login.html');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">
 
@@ -8,70 +16,12 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/65ea520fa5.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
 </head>
 
 <body>
-  <div class="sidebar">
-    <div class="logo-details">
-      <i class='bx bx-loader-circle icon'></i>
-      <div class="logo_name">Conformity</div>
-      <i class='bx bx-menu' id="btn"></i>
-    </div>
-    <ul class="nav-list">
-      <li>
-        <i class='bx bx-search'></i>
-        <input type="text" placeholder="Search...">
-        <span class="tooltip">Procurar</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-grid-alt'></i>
-          <span class="links_name">Dashboard</span>
-        </a>
-        <span class="tooltip">Dashboard</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-building'></i>
-          <span class="links_name">Minha empresa</span>
-        </a>
-        <span class="tooltip">Minha empresa</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-check-square' ></i>
-          <span class="links_name">Checklist</span>
-        </a>
-        <span class="tooltip">Checklist</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bxs-analyse bx-flip-horizontal' ></i>
-          <span class="links_name">Não conformidades</span>
-        </a>
-        <span class="tooltip">Não conformidades</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-log-in-circle'></i>
-          <span class="links_name">Login</span>
-        </a>
-        <span class="tooltip">Login</span>
-      </li>
   
-      <li class="profile">
-        <div class="profile-details">
-          <!--<img src="profile.jpg" alt="profileImg">-->
-          <div class="name_job">
-            <div class="name">Kelly Bettio</div>
-            <div class="job">Analista de qualidade</div>
-          </div>
-        </div>
-        <i class='bx bx-log-out' id="log_out"></i>
-      </li>
-    </ul>
-  </div>
+    <?php carregarComponente('sidebar.php'); ?>
 
   <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= CONTEÚDO MINHA EMPRESA -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
   

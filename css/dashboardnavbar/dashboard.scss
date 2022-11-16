@@ -245,6 +245,10 @@
   margin: 18px;
 
 }
+.sidebar i
+{
+  cursor: pointer;
+}
 @media (max-width: 420px) {
   .sidebar li .tooltip{
     display: none;

@@ -20,66 +20,8 @@ if (!isset($_SESSION['codigo_usuario']))
 </head>
 
 <body>
-  <div class="sidebar">
-    <div class="logo-details">
-      <i class='bx bx-loader-circle icon'></i>
-      <div class="logo_name">Conformity</div>
-      <i class='bx bx-menu' id="btn"></i>
-    </div>
-    <ul class="nav-list">
-      <li>
-        <i class='bx bx-search'></i>
-        <input type="text" placeholder="Search...">
-        <span class="tooltip">Procurar</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-grid-alt'></i>
-          <span class="links_name">Dashboard</span>
-        </a>
-        <span class="tooltip">Dashboard</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-building'></i>
-          <span class="links_name">Minha empresa</span>
-        </a>
-        <span class="tooltip">Minha empresa</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-check-square' ></i>
-          <span class="links_name">Checklist</span>
-        </a>
-        <span class="tooltip">Checklist</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bxs-analyse bx-flip-horizontal' ></i>
-          <span class="links_name">Não conformidades</span>
-        </a>
-        <span class="tooltip">Não conformidades</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-log-in-circle'></i>
-          <span class="links_name">Login</span>
-        </a>
-        <span class="tooltip">Login</span>
-      </li>
   
-      <li class="profile">
-        <div class="profile-details">
-          <!--<img src="profile.jpg" alt="profileImg">-->
-          <div class="name_job">
-            <div class="name">Kelly Bettio</div>
-            <div class="job">Analista de qualidade</div>
-          </div>
-        </div>
-        <i class='bx bx-log-out' id="log_out"></i>
-      </li>
-    </ul>
-  </div>
+  <?php carregarComponente('sidebar.php'); ?>
 
   <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= CONTEÚDO EMPRESAS -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
   
@@ -106,7 +48,7 @@ if (!isset($_SESSION['codigo_usuario']))
                       <p class="text-collapse"><span>Atua como auditor? </span>' . ($empresa['auditor'] ? 'Sim' : 'Não') . '</p>
                     </div>
                   </div>
-                  <button class="acessar" onclick="location.href=\'../empresa_checklists/empresa_checklists.html\'">Acessar</button>
+                  <button class="acessar" onclick="location.href=\'../empresa_checklists/empresa_checklists.php\'">Acessar</button>
             </div>';
 
         }

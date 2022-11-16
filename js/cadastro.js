@@ -3,7 +3,7 @@ import { mostrarErro, botoesMaterial } from './auxiliar.js';
 
 dadosSessao().then(res => {
 	if (res)
-		window.location.replace("/pages/dashboard/dashboard.html");
+		window.location.replace("/pages/empresas/empresas.php");
 })
 
 

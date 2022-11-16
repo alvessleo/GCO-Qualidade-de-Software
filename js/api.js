@@ -50,4 +50,12 @@ function dadosSessao()
 
 }
 
-export { chamadaAPI, dadosSessao };
+function logout()
+{
+    chamadaAPI('auth/logout.php');
+    setTimeout(() => {
+        location.reload();
+    }, 250);
+}
+
+export { chamadaAPI, dadosSessao, logout };
