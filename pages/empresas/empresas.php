@@ -1,3 +1,11 @@
+<?php
+include_once($_SERVER['DOCUMENT_ROOT'] . '/api/cabecalhos.php');
+include_once($_SERVER['DOCUMENT_ROOT'] . '/api-interna/empresa.php');
+
+if (!isset($_SESSION['codigo_usuario']))
+  redirecionar('/pages/login/login.html');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">
 
@@ -8,7 +16,7 @@
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <script src="https://kit.fontawesome.com/65ea520fa5.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
 </head>
 
 <body>
@@ -79,66 +87,30 @@
         <div class="home-section-title">Suas empresas</div>
 
       <div class="empresa-content">
-        <div class="card">
-            <div class="faq">
-                <div class="func-collapse">
-                  <div class="info">
-                    <p><span>Nome da empresa:</span> Company</p>
-                    <p>Ver informações</p>
+
+      <?php
+        foreach (obterRelacionadas() as $empresa)
+        {  
+          echo '<div class="card">
+                <div class="faq">
+                    <div class="func-collapse">
+                      <div class="info">
+                        <p><span>Nome da empresa: </span>' . $empresa['nome'] . '</p>
+                        <p>Ver informações</p>
+                      </div>
+                      <i class="fas fa-regular fa-chevron-down"></i>
+                    </div>
+                    <div class="func-dados">
+                      <p class="text-collapse"><span>Dono da empresa: </span>' . $empresa['dono'] . '</p>
+                      <p class="text-collapse"><span>Seu cargo: </span>' . ($empresa['cargo'] ? $empresa['cargo'] : 'Nenhum') . '</p>
+                      <p class="text-collapse"><span>Atua como auditor? </span>' . ($empresa['auditor'] ? 'Sim' : 'Não') . '</p>
+                    </div>
                   </div>
-                  <i class="fas fa-regular fa-chevron-down"></i>
-                </div>
-                <div class="func-dados">
-                  <p class="text-collapse"><span>Dono da empresa:</span> Pedro Henrique</p>
-                  <p class="text-collapse"><span>Seu cargo:</span> Funcionario</p>
-                  <p class="text-collapse"><span>Atua como auditor?</span> Não</p>
-                  <p class="text-collapse"><span>Número de artefatos:</span> 33</p>
-    
-    
-                </div>
-              </div>
-              <button class="acessar" onclick="location.href='../empresa_checklists/empresa_checklists.html'">Acessar</button>
-        </div>
-        <div class="card">
-            <div class="faq">
-                <div class="func-collapse">
-                  <div class="info">
-                    <p><span>Nome da empresa:</span> Company</p>
-                    <p>Ver informações</p>
-                  </div>
-                  <i class="fas fa-regular fa-chevron-down"></i>
-                </div>
-                <div class="func-dados">
-                  <p class="text-collapse"><span>Dono da empresa:</span> Luiz Kruger</p>
-                  <p class="text-collapse"><span>Seu cargo:</span> Dono</p>
-                  <p class="text-collapse"><span>Atua como auditor?</span> Não</p>
-                  <p class="text-collapse"><span>Número de artefatos:</span> 12</p>
-    
-    
-                </div>
-              </div>
-              <button class="acessar">Acessar</button>
-        </div>
-        <div class="card">
-            <div class="faq">
-                <div class="func-collapse">
-                  <div class="info">
-                    <p><span>Nome da empresa:</span> Company</p>
-                    <p>Ver informações</p>
-                  </div>
-                  <i class="fas fa-regular fa-chevron-down"></i>
-                </div>
-                <div class="func-dados">
-                  <p class="text-collapse"><span>Dono da empresa:</span> Leonardo Alves</p>
-                  <p class="text-collapse"><span>Seu cargo:</span> Funcionario</p>
-                  <p class="text-collapse"><span>Atua como auditor?</span> Sim</p>
-                  <p class="text-collapse"><span>Número de artefatos:</span> 22</p>
-    
-    
-                </div>
-              </div>
-              <button class="acessar">Acessar</button>
-        </div>
+                  <button class="acessar" onclick="location.href=\'../empresa_checklists/empresa_checklists.html\'">Acessar</button>
+            </div>';
+
+        }
+      ?>
         
       </div>
 

@@ -23,7 +23,7 @@ function verificarArgumentos($arrayPHP, $lanca, ...$chaves)
 {
 	foreach ($chaves as $chave)
 	{
-		if (empty($arrayPHP[$chave]))
+		if (!isset($arrayPHP[$chave]) || (empty($arrayPHP[$chave]) && $arrayPHP[$chave] != 0))
 			if ($lanca)
 				respostaJson(array('erro' => 'Argumento não recebido: ' . $chave), 400);
 			else
@@ -45,6 +45,7 @@ function obterConexaoDB()
 		{
 			include_once($_SERVER["DOCUMENT_ROOT"] . '/db/config.php');
 			$conexao = mysqli_connect($servername, $username, $password, $database);
+			$conexao->set_charset("utf8");
 		}
 		catch (mysqli_sql_exception $e) 
 		{
@@ -68,4 +69,10 @@ function executarQuery($sql, $tipos = null, ...$valores)
 		return $query;
 
     return null;
+}
+
+function redirecionar($url)
+{
+	header('Location: ' . $url);
+	exit();
 }

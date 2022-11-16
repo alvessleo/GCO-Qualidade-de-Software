@@ -16,7 +16,7 @@ document.getElementById("form-cadastro_empresa").addEventListener("submit", (eve
 	let cargo = document.getElementById("cargo").value;
     let auditor = document.getElementById("auditor").checked ? 1 : 0;
 
-	chamadaAPI("empresa/cadastro_empresa.php", {"nome": nome, "cargo": cargo, "auditor": auditor}).then(res => {
+	chamadaAPI("empresa/cadastro.php", {"nome": nome, "cargo": cargo, "auditor": auditor}).then(res => {
 		if (res.status != 201)
 		{
 			if ('json' in res && 'erro' in res.json)
@@ -25,7 +25,7 @@ document.getElementById("form-cadastro_empresa").addEventListener("submit", (eve
 				mostrarErro("Erro de status ".concat(res.status));
 		}
 		else
-			window.location.replace("/pages/empresas/empresas.html");
+			window.location.replace("/pages/empresas/empresas.php");
 
 	});
 	

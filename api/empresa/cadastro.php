@@ -35,10 +35,6 @@ catch (mysqli_sql_exception $e)
 {
     switch ($e->getCode())
     {
-        case 1062:
-            respostaJson(array('erro' => 'Nome de usuário já cadastrado'), 400);
-            break;
-
         default:
             respostaJson(array('erro' => 'Erro SQL não capturado: ' . $e->getCode()), 500);
             break;
