@@ -39,6 +39,7 @@ CREATE TABLE artefato
     codigo_empresa INT UNSIGNED NOT NULL,
     nome_artefato VARCHAR(64) NOT NULL,
     recurso VARCHAR(256) NOT NULL,
+    descricao VARCHAR(1024) DEFAULT NULL,
     ultimaModificacao DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
 
     FOREIGN KEY(codigo_empresa) REFERENCES empresa(codigo_empresa),

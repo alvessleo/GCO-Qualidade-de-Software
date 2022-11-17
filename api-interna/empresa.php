@@ -108,16 +108,14 @@ function obterNaoFuncionarios($codigo_empresa)
     }
 }
 
-function eFuncionario($codigo_usuario, $codigo_empresa)
+function eFuncionario($codigo_usuario, $codigo_empresa, $eAuditor = false)
 {
     try
     {
         $resultado = executarQuery(
-            <<<EOT
-                SELECT 1
+            'SELECT 1
                 FROM `usuario_empresa`
-                WHERE `usuario_empresa`.`codigo_usuario` = ? AND `usuario_empresa`.`codigo_empresa` = ?;
-            EOT, 
+                WHERE `usuario_empresa`.`codigo_usuario` = ? AND `usuario_empresa`.`codigo_empresa` = ? ' . ($eAuditor ? 'AND `usuario_empresa`.`auditor` = 1;' : ';'),
             'ii',
             $codigo_usuario,
             $codigo_empresa
@@ -131,6 +129,39 @@ function eFuncionario($codigo_usuario, $codigo_empresa)
     catch (mysqli_sql_exception $e)
     {
         return false;
+    }
+
+}
+
+function obterArtefatos($codigo_empresa)
+{
+    try
+    {
+        $resultado = executarQuery(
+            <<<EOT
+                SELECT *
+                FROM `artefato`
+                WHERE `codigo_empresa` = ?;
+            EOT, 
+            'i',
+            $codigo_empresa
+        );
+    
+        if ($resultado && $resultado_sql = $resultado->get_result())
+        {
+            $linhas = array();
+            
+            while ($linha = $resultado_sql->fetch_assoc())
+                $linhas[$linha['codigo_artefato']] = $linha;
+    
+            return $linhas;
+        }
+
+        return null;
+    } 
+    catch (mysqli_sql_exception $e)
+    {
+        return null;
     }
 
 }

@@ -2,8 +2,9 @@
 include_once($_SERVER['DOCUMENT_ROOT'] . '/api/cabecalhos.php');
 include_once($_SERVER['DOCUMENT_ROOT'] . '/api-interna/empresa.php');
 
-if (!isset($_SESSION['codigo_usuario']))
+if (!isset($_SESSION['codigo_usuario']) || !isset($_GET['codigo']) || !eFuncionario($_SESSION['codigo_usuario'], $_GET['codigo']))
   redirecionar('/pages/login/login.html');
+  
 ?>
 
 <!DOCTYPE html>
@@ -28,10 +29,10 @@ if (!isset($_SESSION['codigo_usuario']))
     <div class="criar-checklist-content">
       <div class="fechar-criar-checklist"><i class="fas fa-solid fa-plus fecharpopup"></i></div>
       <h2>Criar Checklist</h2>
-      <form action="">
+      <form id="formNovaChecklist">
         <p>Nome da Checklist</p>
-        <input type="text" placeholder="Nome">
-        <button>Criar Checklist</button>
+        <input id="nomenovachecklist" type="text" placeholder="Nome">
+        <button type="submit">Criar Checklist</button>
       </form>
     </div>
   </div>
@@ -40,52 +41,29 @@ if (!isset($_SESSION['codigo_usuario']))
     <div class="popup-container">
       <div class="fechar-icon"><i class="fas fa-solid fa-plus fecharpopup" id="fecharpopup"></i></div>
         <div class="title-content">
-          <h2>Checklists do artefato <span>Repositório GitHub</span></h2>
-          <i class="fas fa-solid fa-plus adicionar"></i>
+          <h2>Checklists do artefato <span id="nomeartefatolista">Desconhecido</span></h2>
+          
+
+          <?php
+          
+            if (eFuncionario($_SESSION['codigo_usuario'], $_GET['codigo'], true))
+              echo '<i class="fas fa-solid fa-plus adicionar"></i>';
+          ?>
+          
         </div>
-        <div class="checklist-cards">
-
-          <div class="card">
-            <div class="checklist-nome"><span>Nome:</span> Checklist 1</div>
-            <div class="autor"><span>Autor:</span> Gustavo Guimarães</div>
-            <div class="button-container">
-              <button>Vizualizar Checklist</button>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="checklist-nome"><span>Nome:</span> Checklist 1</div>
-            <div class="autor"><span>Autor:</span> Gustavo Guimarães</div>
-            <div class="button-container">
-              <button>Vizualizar Checklist</button>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="checklist-nome"><span>Nome:</span> Checklist 1</div>
-            <div class="autor"><span>Autor:</span> Gustavo Guimarães</div>
-            <div class="button-container">
-              <button>Vizualizar Checklist</button>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="checklist-nome"><span>Nome:</span> Checklist 1</div>
-            <div class="autor"><span>Autor:</span> Gustavo Guimarães</div>
-            <div class="button-container">
-              <button>Vizualizar Checklist</button>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="checklist-nome"><span>Nome:</span> Checklist 1</div>
-            <div class="autor"><span>Autor:</span> Gustavo Guimarães</div>
-            <div class="button-container">
-              <button>Vizualizar Checklist</button>
-            </div>
-          </div>
+        <div id="checklist-cards" class="checklist-cards">
 
         </div>
+
+        <div id="card-template" class="card">
+          <div class="checklist-nome"><span>Nome: </span><p class="rnome"></p></div>
+          <div class="autor"><span>Autor: </span><p class="rautor"></p></div>
+          <div class="button-container">
+            <button class='rvisualizar'>Vizualizar Checklist</button>
+          </div>
+        </div>
+
+        
     </div>
   </div>
 
@@ -95,9 +73,13 @@ if (!isset($_SESSION['codigo_usuario']))
 
       <div class="company-info">
         <div class="name-user-company">
-          <h1>Company name</h1>
-          <p class="nome">Leonardo Alves</p>
-          <p class="tag">Diretor</p>
+          <?php
+              $empresa = obterRelacionadas()[$_GET['codigo']];
+
+              echo '<h1>' . $empresa['nome'] . '</h1>
+              <p class="nome">' . $empresa['dono'] .'</p>
+              <p class="tag">Dono</p>';
+          ?>
         </div>
       </div>
 
@@ -107,33 +89,23 @@ if (!isset($_SESSION['codigo_usuario']))
 
       <div class="artefatos-cards">
 
-        <div class="card">
-          <div class="artefato">Repositório GitHub</div>
-          <div class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, delectus vitae! Beatae deleniti animi eligendi consequuntur perferendis est ea nihil! Nihil sed corporis reiciendis quod, dolorem amet tempora eligendi aliquid.</div>
-          <div class="btns-container">
-            <button class=" card-btn checklistsBtn">Vizualizar Checklists</button>
-            <button class="card-btn recurso">Vizualizar Recurso</button>
-          </div>
-        </div>
 
-        <div class="card">
-          <div class="artefato">Repositório GitHub</div>
-          <div class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, delectus vitae! Beatae deleniti animi eligendi consequuntur perferendis est ea nihil! Nihil sed corporis reiciendis quod, dolorem amet tempora eligendi aliquid.</div>
-          <div class="btns-container">
-            <button class=" card-btn checklistsBtn">Vizualizar Checklists</button>
-            <button class="card-btn recurso">Vizualizar Recurso</button>
-          </div>
-        </div>
+        <?php
+          foreach (obterArtefatos($_GET['codigo']) as $artefato)
+          {
+            echo '
+            <div class="card">
+              <div class="artefato">'.$artefato['nome_artefato'].'</div>
+              <div class="descricao">'.($artefato['descricao'] ? $artefato['descricao'] : "Sem descrição") .'</div>
+              <div class="btns-container">
+                <button class="card-btn checklistsBtn" nome="'. $artefato['nome_artefato'] .'" codigo="'. $artefato['codigo_artefato'] .'">Vizualizar Checklists</button>
+                <button class="card-btn recurso" onclick="window.location.assign(\''. $artefato['recurso'] .'\');">Vizualizar Recurso</button>
+              </div>
+            </div>';
 
-        <div class="card">
-          <div class="artefato">Repositório GitHub</div>
-          <div class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, delectus vitae! Beatae deleniti animi eligendi consequuntur perferendis est ea nihil! Nihil sed corporis reiciendis quod, dolorem amet tempora eligendi aliquid.</div>
-          <div class="btns-container">
-            <button class=" card-btn checklistsBtn">Vizualizar Checklists</button>
-            <button class="card-btn recurso">Vizualizar Recurso</button>
-          </div>
-        </div>
+          }
 
+        ?>
       </div>
 
     </div>
@@ -141,8 +113,8 @@ if (!isset($_SESSION['codigo_usuario']))
   </section>
 
 
-  <script src="../../js/artefatos.js"></script>
-  <script src="../../js/minha_empresa.js"></script>
+  <script src="/js/artefatos.js" type="module"></script>
+  <script src="/js/minha_empresa.js" type="module"></script>
   <script>
     let sidebar = document.querySelector(".sidebar");
     let closeBtn = document.querySelector("#btn");

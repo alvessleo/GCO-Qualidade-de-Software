@@ -76,7 +76,7 @@ if (!isset($_SESSION['codigo_usuario']) || !isset($_GET['codigo']) || !eFunciona
         </div>
         <div class="artefato-container">
           <h2>Vizualizar Artefato</h2>
-          <a class="viewArtefatos" href="../artefatos/artefatos.php">Artefatos</a>
+          <a class="viewArtefatos" href="../artefatos/artefatos.php?codigo=<?php echo $_GET['codigo']; ?>">Artefatos</a>
         </div>
         <div class="content">
             <div class="header">

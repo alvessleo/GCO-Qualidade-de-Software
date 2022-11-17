@@ -63,7 +63,7 @@ INSERT INTO `artefato` (`codigo_empresa`, `nome_artefato`, `recurso`) VALUES (1,
 INSERT INTO `artefato`(`codigo_empresa`, `nome_artefato`, `recurso`) VALUES (2, "Ligma Corpe", "http://www.github.com/ligmacorp/Ligma_Corpe");
 INSERT INTO `artefato`(`codigo_empresa`, `nome_artefato`, `recurso`) VALUES (2, "Ligma System", "http://www.github.com/ligmasys/Ligma_System");
 
-INSERT INTO `artefato` (`codigo_empresa`, `nome_artefato`, `recurso`) VALUES (3, "Battlefield 2042", "http://www.github.com/EA/bf2042");
+INSERT INTO `artefato` (`codigo_empresa`, `nome_artefato`, `recurso`, `descricao`) VALUES (3, "Battlefield 2042", "http://www.github.com/EA/bf2042", "O pior jogo do ano, muito triste, assasinamos a franquia kkkkkkkk");
 INSERT INTO `artefato` (`codigo_empresa`, `nome_artefato`, `recurso`) VALUES (3, "FIFA 2022", "http://www.github.com/EA/fifa22");
  
 -- Checklists   
