@@ -12,7 +12,7 @@ if (!isset($_SESSION['codigo_usuario']))
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../css/dashboardnavbar/dashboard.css">
-    <link rel="stylesheet" href="../../css/minha_empresa/minha_empresa.css">
+    <link rel="stylesheet" href="../../css/artefatos/artefatos.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/65ea520fa5.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -34,43 +34,13 @@ if (!isset($_SESSION['codigo_usuario']))
                 <p class="tag">Diretor</p>
             </div>
         </div>
-        
+
         <div class="artefato-container">
-          <h2>Vizualizar Artefato</h2>
-          <button class="viewArtefatos">Artefatos</button>
+          <h2>Artefatos</h2>
         </div>
-        <div class="content">
-            <div class="header">
-                <h2>Funcionários ativos</h2>
-                <div class="input">
-                    <input type="text" placeholder="Pesquisar usuário">
-                    <button>Buscar</button>
-                </div>
-                <button id="cadastrarFuncionario">Adicionar funcionário</button>
-            </div>
-            <table class="funcionarios-list" border="0">
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Cargo</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Luiz Kruger</td>
-                    <td>Funcionário</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Pedro Henrique</td>
-                    <td>Auditor</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Gustavo Guima</td>
-                    <td>Funcionário</td>
-                </tr>
-            </table>
-        </div>
+
+        
+
     </div>  
   </section>
 

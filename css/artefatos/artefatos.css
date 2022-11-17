@@ -1,0 +1,44 @@
+:root
+{
+    --CorPrimaria: #2f2d4a;
+    --CorSecundaria: #625f81;
+
+    --CorTextoNormal: rgb(136, 136, 136);
+    --CorSpan: #525252;
+
+    /* CORES GRAVIDADE */
+    --CorSimples-1: #b8ff8c;
+    --CorSimples-2: #80e144;
+
+    --CorMedia-1: #ffb100;
+    --CorMedia-2: #ff8d00;
+
+    --CorComplexo-1: #ff9a9a;
+    --CorComplexo-2: #df6161;
+}
+
+.home-section .container .company-info .name-user-company h1 
+{
+    margin-bottom: 10px;
+}
+
+.home-section .container .company-info .name-user-company .nome 
+{
+    font-weight: 600;
+    font-size: 1.2em;
+    margin-bottom: -5px;
+}
+
+.home-section .container .company-info .name-user-company .tag 
+{
+    font-weight: 500;
+    color: rgb(98, 98, 98);
+}
+
+.artefato-container h2 
+{
+    margin-top: 30px;
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--CorSecundaria);
+}
