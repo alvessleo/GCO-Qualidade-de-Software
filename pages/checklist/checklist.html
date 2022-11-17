@@ -1,166 +1,71 @@
 <!DOCTYPE html>
-<html lang="pt-br" dir="ltr">
+<html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Checklist</title>
-  <link rel="stylesheet" href="../../css/checklist/checklist.css">
-  <link rel="stylesheet" href="../../css/dashboardnavbar/dashboard.css">
-  <link rel="stylesheet" href="../../css/dashboard/dashboard.css">
-  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-  <script src="https://kit.fontawesome.com/65ea520fa5.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist</title>
+    <link rel="stylesheet" href="../../css/checklist/checklist.css">
+    <script src="https://kit.fontawesome.com/65ea520fa5.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <div class="sidebar">
-    <div class="logo-details">
-      <i class='bx bx-loader-circle icon'></i>
-      <div class="logo_name">Conformity</div>
-      <i class='bx bx-menu' id="btn"></i>
+
+    <h1 class="title-table">Checklist</h1>
+
+    <div class="checklist-content">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Item</th>
+                    <th>Conformidade</th>
+                    <th>Comentário</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Leo VERME</td>
+                    <td>Aplica</td>
+                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dignissimos reprehenderit vitae
+                        itaque ullam maxime aliquam. Debitis ipsa incidunt quia consectetur laborum repellendus saepe.
+                        Accusantium similique necessitatibus nisi quam dolores?</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><textarea name="Item" id="textareaItem" placeholder="Insira o Item"></textarea></td>
+                    <td>
+                        <select name="" id="">
+                            <option value="Aplica">Aplica</option>
+                            <option value="Não Aplica">Não Aplica</option>
+                            <option value="N/A">N/A</option>
+                        </select>
+                    </td>
+                    <td><textarea name="Comentario" id="textareaComentario" placeholder="Insira o Comentário"></textarea></td>
+                </tr>
+            </tbody>
+        </table>
+
     </div>
-    <ul class="nav-list">
-      <li>
-        <i class='bx bx-search'></i>
-        <input type="text" placeholder="Search...">
-        <span class="tooltip">Procurar</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-grid-alt'></i>
-          <span class="links_name">Dashboard</span>
-        </a>
-        <span class="tooltip">Dashboard</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-building'></i>
-          <span class="links_name">Minha empresa</span>
-        </a>
-        <span class="tooltip">Minha empresa</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-check-square' ></i>
-          <span class="links_name">Checklist</span>
-        </a>
-        <span class="tooltip">Checklist</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bxs-analyse bx-flip-horizontal' ></i>
-          <span class="links_name">Não conformidades</span>
-        </a>
-        <span class="tooltip">Não conformidades</span>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-log-in-circle'></i>
-          <span class="links_name">Login</span>
-        </a>
-        <span class="tooltip">Login</span>
-      </li>
-  
-      <li class="profile">
-        <div class="profile-details">
-          <!--<img src="profile.jpg" alt="profileImg">-->
-          <div class="name_job">
-            <div class="name">Kelly Bettio</div>
-            <div class="job">Analista de qualidade</div>
-          </div>
-        </div>
-        <i class='bx bx-log-out' id="log_out"></i>
-      </li>
-    </ul>
-  </div>
 
-  <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= CONTEÚDO HOME DASHBOARD -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-  
-  <section class="home-section padding">
-    <div class="checklist-envelope">
-        <h1 class="title-table">Checklist</h1>
-
-        <div class="checklist-content">
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Item</th>
-                        <th>Conformidade</th>
-                        <th>Comentário</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Leo VERME</td>
-                        <td>Aplica</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dignissimos reprehenderit vitae
-                            itaque ullam maxime aliquam. Debitis ipsa incidunt quia consectetur laborum repellendus saepe.
-                            Accusantium similique necessitatibus nisi quam dolores?</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><textarea name="Item" id="textareaItem" placeholder="Insira o Item"></textarea></td>
-                        <td>
-                            <select name="" id="">
-                                <option value="Aplica">Aplica</option>
-                                <option value="Não Aplica">Não Aplica</option>
-                                <option value="N/A">N/A</option>
-                            </select>
-                        </td>
-                        <td><textarea name="Comentario" id="textareaComentario" placeholder="Insira o Comentário"></textarea></td>
-                    </tr>
-                </tbody>
-            </table>
-
-        </div>
-
-        <div class="plus-icon-content">
-                <div class="plus-icon"><i class="fas fa-light fa-plus"></i></div>
-        </div>
+    <div class="plus-icon-content">
+            <div class="plus-icon"><i class="fas fa-light fa-plus"></i></div>
     </div>
-  </section>
 
-
-  <script src="../../js/graphics.js"></script>
-  <script src="../../js/collapse.js"></script>
-  <script src="../../js/graphicBtns.js"></script>
-  
-  <script>
-    let sidebar = document.querySelector(".sidebar");
-    let closeBtn = document.querySelector("#btn");
-    let searchBtn = document.querySelector(".bx-search");
-
-    closeBtn.addEventListener("click", () => {
-      sidebar.classList.toggle("open");
-      menuBtnChange();//calling the function(optional)
-    });
-
-    searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
-      sidebar.classList.toggle("open");
-      menuBtnChange(); //calling the function(optional)
-    });
-
-    // following are the code to change sidebar button(optional)
-    function menuBtnChange() {
-      if (sidebar.classList.contains("open")) {
-        closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-      } else {
-        closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
-      }
-    }
-
-    const textarea = document.querySelector("textarea");
+    <script>
+        const textarea = document.querySelector("textarea");
 
         textarea.addEventListener("keyup", e => {
             textarea.style.height = "59px";
             let scHeight = e.target.scrollHeight;
             textarea.style.height = `${scHeight}px`;
         });
-  </script>
+
+    </script>
+
 </body>
 
 </html>
