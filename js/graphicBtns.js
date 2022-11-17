@@ -1,14 +1,15 @@
-button1 = document.getElementsByClassName('conformidades-btn');
-button2 = document.getElementsByClassName('funcionarios-btn');
+graficoConformidades = document.getElementById("comformidadesGraphic");
+ConformidadesBtn = document.getElementById("conformidades-btn");
+graficoFuncionarios = document.getElementById("FuncionariosGraphic");
+funcionariosBtn = document.getElementById("funcionarios-btn");
 
-function graficoConformidades() 
+ConformidadesBtn.addEventListener("click", () => 
 {
-    document.getElementById('graphicconform').style.display = 'block', '!important';
-    document.getElementById('graphicbars').style.display = 'none', '!important';
-}
-
-function graficoFuncionarios() 
+    graficoConformidades.classList.toggle("active");
+    graficoFuncionarios.classList.remove("active");
+});
+funcionariosBtn.addEventListener("click", () => 
 {
-    document.getElementById('graphicconform').style.display = 'none', '!important';
-    document.getElementById('graphicbars').style.display = 'block', '!important';
-}
+    graficoFuncionarios.classList.toggle("active");
+    graficoConformidades.classList.remove("active");
+});

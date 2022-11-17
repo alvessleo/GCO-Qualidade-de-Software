@@ -28,9 +28,9 @@
 
 .home-section-title 
 {
-    font-size: 2rem;
+    font-size: 26px;
     font-weight: 600;
-    padding: 20px 20px 50px 0px;
+    padding: 20px 20px 20px 0px;
     color: var(--CorSecundaria);
 }
 
@@ -254,11 +254,16 @@ span
 .chart-container 
 {
     width: 100%;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
     margin: 30px 0px;
+}
+
+.chart-container.active
+{
+    display: flex;
 }

@@ -17,6 +17,11 @@
     --CorSpan: #525252;
 }
 
+.padding
+{
+    padding: 20px 30px !important;
+}
+
 .title-table
 {
     text-align: center;
@@ -49,7 +54,7 @@ table, th, td
 
 table 
 {
-    width: 90%;
+    width: 100%;
     margin-top: 30px;
 }
 
