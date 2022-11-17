@@ -22,9 +22,9 @@
     padding: 20px 30px !important;
 }
 
-.title-table
+.title-table 
 {
-    text-align: center;
+    font-size: 26px;
     margin: 20px 0px 0px 0px;
     color: var(--CorSecundaria);
 }
