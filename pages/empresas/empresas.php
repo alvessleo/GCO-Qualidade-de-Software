@@ -48,7 +48,7 @@ if (!isset($_SESSION['codigo_usuario']))
                       <p class="text-collapse"><span>Atua como auditor? </span>' . ($empresa['auditor'] ? 'Sim' : 'Não') . '</p>
                     </div>
                   </div>
-                  <button class="acessar" onclick="location.href=\'../minha-empresa/minha-empresa.php\'">Acessar</button>
+                  <button class="acessar" onclick="location.href=\'/pages/minha-empresa/minha-empresa.php?codigo=' . $empresa['codigo_empresa'] . '\'">Acessar</button>
             </div>';
 
         }

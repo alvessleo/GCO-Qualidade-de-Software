@@ -2,8 +2,9 @@
 include_once($_SERVER['DOCUMENT_ROOT'] . '/api/cabecalhos.php');
 include_once($_SERVER['DOCUMENT_ROOT'] . '/api-interna/empresa.php');
 
-if (!isset($_SESSION['codigo_usuario']))
+if (!isset($_SESSION['codigo_usuario']) || !isset($_GET['codigo']) || !eFuncionario($_SESSION['codigo_usuario'], $_GET['codigo']))
   redirecionar('/pages/login/login.html');
+
 ?>
 
 <!DOCTYPE html>
@@ -30,24 +31,30 @@ if (!isset($_SESSION['codigo_usuario']))
             <div class="close">
                 <i class='bx bx-x'></i>
             </div>
-            <form action="">
+            <form id="form-funcionario-mesmo">
                 <h2>Adicione um funcionário a empresa!</h2>
                 <p>
                     <label for="select-funcionarios">Selecione um funcionário:</label><br>
-                    <select name="select-funcionarios" id="select-funcionarios">
-                        <option value="funcionarioX">Luiz</option>
-                        <option value="funcionarioX">Leo</option>
-                        <option value="funcionarioX">Vini</option>
+                    <select name="select-funcionarios" id="select-funcionarios" required>
+                      <?php
+                        foreach (obterNaoFuncionarios($_GET['codigo']) as $funcionario)
+                        {
+                          echo '<option value=' . $funcionario['codigo_usuario'] . '>' . $funcionario['nome'] . '</option>';
+                        }
+
+                      ?>
                     </select>
                 </p>
                 <p>
                     <label for="cargo">Insira o cargo:</label><br>
-                    <input class="input" type="text" id="cargo" placeholder="Cargo aqui">
+                    <input class="input" type="text" id="cargo" placeholder="Cargo aqui" required>
                 </p>
                 <p>
                     <label for="auditor-new-funcionario">É auditor?</label><br>
                     <input id="auditor-new-funcionario" type="checkbox">
                 </p>
+
+                <input id="codempresa" type="hidden" value=<?php echo $_GET['codigo']; ?>>
                 <button type="submit" id="add-func" class="add-func">Adicionar funcionario</button>
             </form>
         </div>
@@ -56,9 +63,15 @@ if (!isset($_SESSION['codigo_usuario']))
     <div class="container">
         <div class="company-info">
             <div class="name-user-company">
-                <h1>Company name</h1>
-                <p class="nome">Leonardo Alves</p>
-                <p class="tag">Diretor</p>
+
+              <?php
+                  $empresa = obterRelacionadas()[$_GET['codigo']];
+
+                  echo '<h1>' . $empresa['nome'] . '</h1>
+                  <p class="nome">' . $empresa['dono'] .'</p>
+                  <p class="tag">Dono</p>';
+
+              ?>
             </div>
         </div>
         <div class="artefato-container">
@@ -68,38 +81,35 @@ if (!isset($_SESSION['codigo_usuario']))
         <div class="content">
             <div class="header">
                 <h2>Funcionários ativos</h2>
-                <div class="input">
-                    <input type="text" placeholder="Pesquisar usuário">
-                    <button>Buscar</button>
-                </div>
-                <button id="cadastrarFuncionario">Adicionar funcionário</button>
+                
+                <button id="cadastrarFuncionario" style="display: <?php echo $empresa['codigo_dono'] == $_SESSION['codigo_usuario'] ? 'auto' : 'none'; ?>">Adicionar funcionário</button>
             </div>
             <table class="funcionarios-list" border="0">
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Cargo</th>
+                    <th>Auditor</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Luiz Kruger</td>
-                    <td>Funcionário</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Pedro Henrique</td>
-                    <td>Auditor</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Gustavo Guima</td>
-                    <td>Funcionário</td>
-                </tr>
+
+                <?php
+                  foreach (obterFuncionarios($_GET['codigo']) as $funcionario)
+                  {
+                    echo '<tr>
+                      <td>' . $funcionario['codigo_usuario'] . '</td>
+                      <td>' . $funcionario['nome'] . '</td>
+                      <td>' . ($funcionario['cargo'] ? $funcionario['cargo'] : 'Nenhum') . '</td>
+                      <td>' . ($funcionario['auditor'] ? 'Sim': 'Não') . '</td>
+                    </tr>';
+                  }
+
+                ?>
+
             </table>
         </div>
     </div>  
   </section>
-  <script src="../../js/minha_empresa.js"></script>
+  <script src="/js/minha_empresa.js" type="module"></script>
   <script>
     let sidebar = document.querySelector(".sidebar");
     let closeBtn = document.querySelector("#btn");
