@@ -35,6 +35,69 @@
     justify-content: center;
 }
 
+#edit-btn{
+    margin-bottom: 6px;
+}
+
+#edit-btn::after{
+    position: absolute;
+    content: 'Editar';
+    padding: 5px 10px;
+    opacity: 0;
+    transition: 0.5s;
+    border-radius: 5px;
+}
+
+#edit-btn:hover::after{
+    content: 'Editar';
+    color: black;
+    background-color: #d3d3d3;
+    opacity: 1;
+    transform: translateY(-30px);
+}
+
+#remove-btn::after{
+    position: absolute;
+    content: 'Remover';
+    padding: 5px 10px;
+    opacity: 0;
+    transition: 0.5s;
+    border-radius: 5px;
+}
+
+#remove-btn:hover::after{
+    content: 'Remover';
+    color: black;
+    background-color: #d3d3d3;
+    opacity: 1;
+    transform: translateY(-30px);
+}
+
+#edit-btn, #remove-btn{
+    color: #fff;
+    background-color: #2f2d4a;
+    border: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+
+#edit-btn, #remove-btn:hover{
+    cursor: pointer;
+}
+
+#remove-btn i{
+    font-size: 1.1em;
+}
+
+#edit-btn i{
+    font-size: 1.2em;
+}
+
 th 
 {
     background: var(--CorPrimaria);
