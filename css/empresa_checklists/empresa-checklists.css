@@ -1,5 +1,5 @@
 .home-section .form-funcionario {
-  display: flex;
+  display: none;
   position: absolute;
   z-index: 9999;
   top: 0;

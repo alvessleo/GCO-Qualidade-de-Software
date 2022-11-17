@@ -233,6 +233,10 @@
   z-index: 2;
   padding: 20px 100px;
 }
+
+.padding{
+  padding: 20px 10px;
+}
 .sidebar.open ~ .home-section{
   left: 250px;
   width: calc(100% - 250px);
