@@ -114,7 +114,7 @@ if (!isset($_SESSION['codigo_usuario']) || !isset($_GET['codigo']) || !eFunciona
 
 
   <script src="/js/artefatos.js" type="module"></script>
-  <script src="/js/minha_empresa.js" type="module"></script>
+  
   <script>
     let sidebar = document.querySelector(".sidebar");
     let closeBtn = document.querySelector("#btn");

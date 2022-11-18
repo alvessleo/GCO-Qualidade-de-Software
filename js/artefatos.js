@@ -29,6 +29,8 @@ var checklistsBtn = document.getElementsByClassName("checklistsBtn");
 var popUpChecklist = document.getElementsByClassName("popup-checklists")[0];
 var fecharpopup = document.getElementById("fecharpopup");
 
+
+
 Array.from(checklistsBtn).forEach(element => {
     
     element.addEventListener("click", () => 
@@ -58,6 +60,13 @@ Array.from(checklistsBtn).forEach(element => {
                         novoCard.removeAttribute('id');
                         novoCard.getElementsByClassName('rnome')[0].innerText = checklist.nome;
                         novoCard.getElementsByClassName('rautor')[0].innerText = checklist.nomecriador;
+                        
+                        let botaoVisualizarChecklist = novoCard.getElementsByClassName("rvisualizar");
+                        botaoVisualizarChecklist[0].addEventListener("click", () =>
+                        {
+                            window.location.href = `/pages/checklist/checklist.php?codigo=${checklist.codigo_checklist}`;
+                        });
+                        
                         listCards.appendChild(novoCard);
                     }
 
@@ -79,7 +88,6 @@ Array.from(checklistsBtn).forEach(element => {
                     alert("Erro de status ".concat(res.status));
             }
         });
-
 
     });
 

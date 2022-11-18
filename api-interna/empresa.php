@@ -133,6 +133,35 @@ function eFuncionario($codigo_usuario, $codigo_empresa, $eAuditor = false)
 
 }
 
+function eAuditorChecklist($codigo_usuario, $codigo_checklist)
+{
+    try
+    {
+        $resultado = executarQuery(
+            'SELECT 1 FROM `checklist`
+            INNER JOIN `artefato`
+            ON `artefato`.`codigo_artefato` = `checklist`.`codigo_artefato`
+            INNER JOIN `usuario_empresa`
+            ON `artefato`.`codigo_empresa` = `usuario_empresa`.`codigo_empresa`
+            WHERE `usuario_empresa`.`codigo_usuario` = ? AND `checklist`.`codigo_checklist` = ? AND `usuario_empresa`.`auditor` = 1
+            LIMIT 1;',
+            'ii',
+            $codigo_usuario,
+            $codigo_checklist
+        );
+    
+        if ($resultado && $resultado_sql = $resultado->get_result())
+            return $resultado_sql->num_rows > 0;
+
+        return false;
+    } 
+    catch (mysqli_sql_exception $e)
+    {
+        return false;
+    }
+
+}
+
 function obterArtefatos($codigo_empresa)
 {
     try

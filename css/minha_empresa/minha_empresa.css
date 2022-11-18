@@ -58,7 +58,7 @@
 .home-section .form-funcionario .content form p {
   margin-bottom: 15px;
 }
-.home-section .form-funcionario .content form select, .home-section .form-funcionario .content form input
+.home-section .form-funcionario .content form select, .home-section .form-funcionario .content form input, .home-section .form-funcionario .content form textarea
 {
   height: 40px;
   margin-top: 10px;
@@ -138,7 +138,7 @@ input#auditor-new-funcionario {
 .home-section .container .content .header .input {
   z-index: 999;
 }
-.home-section .container .content .header .input input {
+.home-section .container .content .header .input input, .home-section .container .content .header .input textarea {
   background-color: #D9D9D9;
   outline: none;
   border: none;

@@ -35,11 +35,11 @@
     justify-content: center;
 }
 
-#edit-btn{
+.edit-btn{
     margin-bottom: 6px;
 }
 
-#edit-btn::after{
+.edit-btn::after{
     position: absolute;
     content: 'Editar';
     padding: 5px 10px;
@@ -48,7 +48,7 @@
     border-radius: 5px;
 }
 
-#edit-btn:hover::after{
+.edit-btn:hover::after{
     content: 'Editar';
     color: black;
     background-color: #d3d3d3;
@@ -56,7 +56,7 @@
     transform: translateY(-30px);
 }
 
-#remove-btn::after{
+.remove-btn::after{
     position: absolute;
     content: 'Remover';
     padding: 5px 10px;
@@ -65,7 +65,7 @@
     border-radius: 5px;
 }
 
-#remove-btn:hover::after{
+.remove-btn:hover::after{
     content: 'Remover';
     color: black;
     background-color: #d3d3d3;
@@ -73,7 +73,7 @@
     transform: translateY(-30px);
 }
 
-#edit-btn, #remove-btn{
+.edit-btn, .remove-btn{
     color: #fff;
     background-color: #2f2d4a;
     border: none;
@@ -86,15 +86,17 @@
     position: relative;
 }
 
-#edit-btn, #remove-btn:hover{
+.edit-btn, .remove-btn:hover{
     cursor: pointer;
 }
 
-#remove-btn i{
+.remove-btn i{
+    pointer-events: none;
     font-size: 1.1em;
 }
 
-#edit-btn i{
+.edit-btn i{
+    pointer-events: none;
     font-size: 1.2em;
 }
 
@@ -196,4 +198,11 @@ select
 .plus-icon i:hover::after
 {
     opacity: 1;
+}
+
+.textareatextarea
+{
+    height: 120px !important;
+    min-width: 100%;
+    max-width: 100%;
 }
