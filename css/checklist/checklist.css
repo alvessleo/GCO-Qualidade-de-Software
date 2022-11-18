@@ -17,10 +17,40 @@
     --CorSpan: #525252;
 }
 
+
+
 .card{
     background-color: #fff;
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
+    max-width: 300px;
+    width: 100%;
+
+}
+
+.card .nome{
+    margin-bottom: 0.5em;
+
+}
+
+.card .empresa{
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+.card button{
+    background-color: #2f2d4a;
+    color: #fff;
+    width: 100%;
+    padding: 5px 0px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.card button:hover{
+    cursor: pointer;
+    
 }
 
 .padding
@@ -31,7 +61,7 @@
 .title-table 
 {
     font-size: 26px;
-    margin: 20px 0px 0px 0px;
+    margin: 20px 0px 2em 0px;
     color: var(--CorSecundaria);
 }
 
