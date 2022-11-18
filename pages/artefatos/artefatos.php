@@ -32,17 +32,17 @@ if (!isset($_SESSION['codigo_usuario']) || !isset($_GET['codigo']) || !eFunciona
       <form action="">
         <div class="item">
           <p>Nome Artefato</p>
-          <input type="text" placeholder="Artefato">
+          <input id="ra_nome" type="text" placeholder="Artefato">
         </div>
         <div class="item">
           <p>Descrição</p>
-          <textarea name="" id="" placeholder="Descrição"></textarea>
+          <textarea name="" id="ra_descricao" placeholder="Descrição"></textarea>
         </div>
         <div class="item">
           <p>Recurso</p>
-          <input type="text" placeholder="Recurso">
+          <input id="ra_recurso" type="text" placeholder="Recurso">
         </div>
-        <a href="#">Criar Artefato</a>
+        <a id="criarArtefatoConfirma" empresa="<?php echo $_GET['codigo']; ?>">Criar Artefato</a>
       </form>
     </div>
   </div>
@@ -64,7 +64,6 @@ if (!isset($_SESSION['codigo_usuario']) || !isset($_GET['codigo']) || !eFunciona
       <div class="fechar-icon"><i class="fas fa-solid fa-plus fecharpopup" id="fecharpopup"></i></div>
         <div class="title-content">
           <h2>Checklists do artefato <span id="nomeartefatolista">Desconhecido</span></h2>
-          
 
           <?php
           
@@ -97,7 +96,6 @@ if (!isset($_SESSION['codigo_usuario']) || !isset($_GET['codigo']) || !eFunciona
         <div class="name-user-company">
           <?php
               $empresa = obterRelacionadas()[$_GET['codigo']];
-
               echo '<h1>' . $empresa['nome'] . '</h1>
               <p class="nome">' . $empresa['dono'] .'</p>
               <p class="tag">Dono</p>';

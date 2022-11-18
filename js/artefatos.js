@@ -130,6 +130,27 @@ formNovaChecklist.addEventListener("submit", (event) =>
 });
 
 
+document.getElementById("criarArtefatoConfirma").addEventListener("click", (event) => {
+    
+    let codigo_empresa = event.target.getAttribute('empresa');
+    let nome_artefato = document.getElementById('ra_nome').value;
+    let descricao = document.getElementById('ra_descricao').value;
+    let recurso = document.getElementById('ra_recurso').value;
+
+    chamadaAPI("artefato/cadastro.php", {"codigo_empresa": codigo_empresa, "nome_artefato": nome_artefato, "descricao": descricao, "recurso": recurso}).then(res => {
+        if (res.status != 201)
+        {
+            if ('json' in res && 'erro' in res.json)
+                alert(res.json.erro);
+            else
+                alert("Erro de status ".concat(res.status));
+        }
+        else
+            window.location.reload();
+    });
+
+});
+
 // checklistsBtn.addEventListener("click", () => 
 // {
 //     popUpChecklist.classList.toggle("active");
