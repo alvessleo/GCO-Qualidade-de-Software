@@ -60,6 +60,48 @@
     color: rgb(98, 98, 98);
 }
 
+.artefato-container 
+{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.artefato-container i
+{
+    cursor: pointer;
+    font-size: 15px;
+    padding: 11px;
+    background: var(--CorPrimaria);
+    color: white;
+    border-radius: 8px;
+    transition: 0.5s ease-out;
+}
+
+.artefato-container i:hover
+{
+    background-color: #0f0f1b;
+}
+
+.artefato-container i::after
+{
+    font-family: 'Poppins', sans-serif;
+    content: "Criar Artefato";
+    position: absolute;
+    color: var(--CorPrimaria);
+    font-weight: 600;
+    transform: translateX(-140px);
+    transition: 0.5s ease-out;
+    opacity: 0;
+}
+
+.artefato-container i:hover::after
+{
+    transition: 0.5s ease-out;
+    opacity: 1;
+}
+
 .artefato-container h2 
 {
     margin-top: 30px;
@@ -127,6 +169,109 @@ button.card-btn
 button.card-btn:hover
 {
     background-color: #19182b;
+}
+
+/* -=-=-=-=-=-=-=-=-=-= POPUP CRIAR ARTEFATO -=-=-=-=-=-=-=-=-=-= */
+
+.formCriarArtefato 
+{
+    display: none;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    background: #00000063;
+    height: 100%;
+}
+
+.formCriarArtefato.active
+{
+    display: block;
+}
+
+.formContainer i 
+{
+    color: var(--CorPrimaria);
+    cursor: pointer;
+    font-size: 25px;
+    position: fixed;
+    rotate: 315deg;
+    transform: translate(469px, 402px);
+}
+
+.formContainer 
+{
+    width: 50%;
+    background: white;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+}
+
+.formContainer h2 
+{
+    text-align: center;
+    padding-top: 10px;
+}
+
+.formContainer form 
+{
+    display: inline-grid;
+    width: 100%;
+}
+
+.formContainer form .item
+{
+    margin: 5px 0px;
+}
+
+.formContainer form p 
+{
+    margin-bottom: 5px;
+}
+
+.formContainer form input
+{
+    width: 100%;
+    border-radius: 5px;
+    height: 35px;
+    background: lightgray;
+    border: none;
+    outline: none;
+    padding: 10px;
+}
+
+.formContainer form textarea
+{
+    width: 100%;
+    height: 120px;
+    border: none;
+    background: lightgray;
+    border-radius: 5px;
+    padding: 10px;
+    outline: none;
+}
+
+.formContainer form a 
+{
+    background: var(--CorPrimaria);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    border-radius: 5px;
+    transition: 0.5s ease-out;
+}
+
+.formContainer form a:hover
+{
+    background-color: #0f0f1b;
 }
 
 /* -=-=-=-=-=-=-=-=-=-= POPUP CHECKLISTS -=-=-=-=-=-=-=-=-=-= */

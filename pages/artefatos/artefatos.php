@@ -25,6 +25,28 @@ if (!isset($_SESSION['codigo_usuario']) || !isset($_GET['codigo']) || !eFunciona
 
   <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= CONTEÚDO MINHA EMPRESA -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
 
+  <div class="formCriarArtefato">
+    <div class="formContainer">
+      <h2>Formulário Artefato</h2>
+      <i class="fas fa-solid fa-plus closeArtefatoBtn"></i>
+      <form action="">
+        <div class="item">
+          <p>Nome Artefato</p>
+          <input type="text" placeholder="Artefato">
+        </div>
+        <div class="item">
+          <p>Descrição</p>
+          <textarea name="" id="" placeholder="Descrição"></textarea>
+        </div>
+        <div class="item">
+          <p>Recurso</p>
+          <input type="text" placeholder="Recurso">
+        </div>
+        <a href="#">Criar Artefato</a>
+      </form>
+    </div>
+  </div>
+
   <div class="criar-checklist-container">
     <div class="criar-checklist-content">
       <div class="fechar-criar-checklist"><i class="fas fa-solid fa-plus fecharpopup"></i></div>
@@ -85,6 +107,7 @@ if (!isset($_SESSION['codigo_usuario']) || !isset($_GET['codigo']) || !eFunciona
 
       <div class="artefato-container">
         <h2>Artefatos</h2>
+        <i class="fas fa-solid fa-plus adicionarArtefato"></i>
       </div>
 
       <div class="artefatos-cards">

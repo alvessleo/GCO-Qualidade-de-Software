@@ -1,5 +1,19 @@
 import { chamadaAPI } from './api.js';
 
+// PopUp Formulário criar Artefatos
+
+var adicionarArtefato = document.getElementsByClassName("adicionarArtefato")[0];
+var formCriarArtefato = document.getElementsByClassName("formCriarArtefato")[0];
+var closeArtefatoBtn = document.getElementsByClassName("closeArtefatoBtn")[0];
+
+adicionarArtefato.addEventListener("click", () => 
+{
+    formCriarArtefato.classList.toggle("active")
+});
+closeArtefatoBtn.addEventListener("click", () => 
+{
+    formCriarArtefato.classList.remove("active");
+});
 
 // PopUp Formulário criar Checklist
 
