@@ -81,7 +81,7 @@ if (!isset($_SESSION['codigo_usuario']) || !isset($_GET['codigo']) || !eFunciona
           <div class="checklist-nome"><span>Nome: </span><p class="rnome"></p></div>
           <div class="autor"><span>Autor: </span><p class="rautor"></p></div>
           <div class="button-container">
-            <button class='rvisualizar'>Vizualizar Checklist</button>
+            <button class='rvisualizar'>Visualizar Checklist</button>
           </div>
         </div>
 
@@ -121,8 +121,8 @@ if (!isset($_SESSION['codigo_usuario']) || !isset($_GET['codigo']) || !eFunciona
               <div class="artefato">'.$artefato['nome_artefato'].'</div>
               <div class="descricao">'.($artefato['descricao'] ? $artefato['descricao'] : "Sem descrição") .'</div>
               <div class="btns-container">
-                <button class="card-btn checklistsBtn" nome="'. $artefato['nome_artefato'] .'" codigo="'. $artefato['codigo_artefato'] .'">Vizualizar Checklists</button>
-                <button class="card-btn recurso" onclick="window.location.assign(\''. $artefato['recurso'] .'\');">Vizualizar Recurso</button>
+                <button class="card-btn checklistsBtn" nome="'. $artefato['nome_artefato'] .'" codigo="'. $artefato['codigo_artefato'] .'">Visualizar Checklists</button>
+                <button class="card-btn recurso" onclick="window.location.assign(\''. $artefato['recurso'] .'\');">Visualizar Recurso</button>
               </div>
             </div>';
 
