@@ -12,6 +12,13 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/api/cabecalhos.php');
   </div>
   <ul class="nav-list" id="comp-sidebar">
     <li>
+      <a href="#">
+        <i class='bx bx-error-alt'></i>
+        <span class="links_name">Minhas NC</span>
+      </a>
+      <span class="tooltip">Minhas NC</span>
+    </li>
+    <li>
       <a href="/pages/empresas/empresas.php">
         <i class='bx bx-building'></i>
         <span class="links_name">Empresas</span>

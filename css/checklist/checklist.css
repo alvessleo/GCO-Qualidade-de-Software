@@ -17,6 +17,12 @@
     --CorSpan: #525252;
 }
 
+.card{
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
 .padding
 {
     padding: 20px 30px !important;
