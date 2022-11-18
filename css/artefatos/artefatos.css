@@ -19,6 +19,48 @@
     --CorComplexo-2: #df6161;
 }
 
+.artefato-container 
+{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.artefato-container i
+{
+    cursor: pointer;
+    font-size: 14px;
+    background: var(--CorPrimaria);
+    padding: 12px;
+    border-radius: 10px;
+    color: white;
+    transition: 0.5s ease-out;
+}
+
+.artefato-container i:hover
+{
+    background-color: #0f0f1b;
+}
+
+.artefato-container i::after
+{
+    transition: 0.5s ease-out;
+    content: "Criar Artefato";
+    position: absolute;
+    font-family: 'Poppins', sans-serif;
+    color: var(--CorPrimaria);
+    font-weight: 600;
+    transform: translateX(-135px);
+    opacity: 0;
+}
+
+.artefato-container i:hover::after
+{
+    transition: 0.5s ease-out;
+    opacity: 1;
+}
+
 .home-section .container .company-info .name-user-company h1 
 {
     margin-bottom: 10px;
@@ -62,7 +104,6 @@
 
 .artefato-container h2 
 {
-    margin-top: 30px;
     font-size: 25px;
     font-weight: 700;
     color: var(--CorSecundaria);

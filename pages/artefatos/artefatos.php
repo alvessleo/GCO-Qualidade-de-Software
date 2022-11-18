@@ -85,6 +85,7 @@ if (!isset($_SESSION['codigo_usuario']) || !isset($_GET['codigo']) || !eFunciona
 
       <div class="artefato-container">
         <h2>Artefatos</h2>
+        <i class="fas fa-solid fa-plus"></i>
       </div>
 
       <div class="artefatos-cards">
