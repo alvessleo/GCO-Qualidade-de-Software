@@ -161,12 +161,15 @@ input#auditor-new-funcionario {
   z-index: 999;
   border: none;
   padding: 5px 15px;
-  font-size: 1.1em;
+  font-size: 15px;
   border-radius: 5px;
   color: #fff;
   background-color: #1d1b31;
+  font-weight: 300;
+  transition: 0.5s ease-out;
 }
 .home-section .container .content .header button:hover {
+  background-color: #0e0d1a;
   cursor: pointer;
 }
 .home-section .container .content table {

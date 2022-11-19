@@ -20,41 +20,35 @@ if (!isset($_SESSION['codigo_usuario']))
 </head>
 
 <body>
-  
+
   <?php carregarComponente('sidebar.php'); ?>
 
   <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= CONTEÚDO EMPRESAS -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-  
+
   <section class="home-section">
-        <div class="home-section-title">Suas empresas</div>
+    <div class="home-section-title">Suas empresas</div>
 
-      <div class="empresa-content">
+    <div class="empresa-section">
+      <div class="empresa-content-cards">
 
-      <?php
-        foreach (obterRelacionadas() as $empresa)
-        {  
-          echo '<div class="card">
-                <div class="faq">
-                    <div class="func-collapse">
-                      <div class="info">
-                        <p><span>Nome da empresa: </span>' . $empresa['nome'] . '</p>
-                        <p>Ver informações</p>
-                      </div>
-                      <i class="fas fa-regular fa-chevron-down"></i>
-                    </div>
-                    <div class="func-dados">
-                      <p class="text-collapse"><span>Dono da empresa: </span>' . $empresa['dono'] . '</p>
-                      <p class="text-collapse"><span>Seu cargo: </span>' . ($empresa['cargo'] ? $empresa['cargo'] : 'Nenhum') . '</p>
-                      <p class="text-collapse"><span>Atua como auditor? </span>' . ($empresa['auditor'] ? 'Sim' : 'Não') . '</p>
-                    </div>
-                  </div>
-                  <button class="acessar" onclick="location.href=\'/pages/minha-empresa/minha-empresa.php?codigo=' . $empresa['codigo_empresa'] . '\'">Acessar</button>
-            </div>';
-
+        <?php
+        foreach (obterRelacionadas() as $empresa) {
+          echo
+          '
+                <div class="empresa-card">
+                  <p><span>Nome da Empresa: </span>' . $empresa['nome'] . '</p>
+                  <p><span>Dono da Empresa: </span>' . $empresa['dono'] . '</p>
+                  <p><span>Seu Cargo: </span>' . ($empresa['cargo'] ? $empresa['cargo'] : 'Nenhum') . '</p>
+                  <p><span>Atua Como Auditor? </span>' . ($empresa['auditor'] ? 'Sim' : 'Não') . '</p>
+                  <button class="empresa-btn" onclick="location.href=\'/pages/minha-empresa/minha-empresa.php?codigo=' . $empresa['codigo_empresa'] . '\'">Acessar</button>
+                </div>
+            ';
         }
-      ?>
-        
+        ?>
+
+
       </div>
+    </div>
 
   </section>
   <script src="../../js/collapse.js"></script>
@@ -65,7 +59,7 @@ if (!isset($_SESSION['codigo_usuario']))
 
     closeBtn.addEventListener("click", () => {
       sidebar.classList.toggle("open");
-      menuBtnChange();//calling the function(optional)
+      menuBtnChange(); //calling the function(optional)
     });
 
     searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
@@ -76,9 +70,9 @@ if (!isset($_SESSION['codigo_usuario']))
     // following are the code to change sidebar button(optional)
     function menuBtnChange() {
       if (sidebar.classList.contains("open")) {
-        closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+        closeBtn.classList.replace("bx-menu", "bx-menu-alt-right"); //replacing the iocns class
       } else {
-        closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
+        closeBtn.classList.replace("bx-menu-alt-right", "bx-menu"); //replacing the iocns class
       }
     }
   </script>
