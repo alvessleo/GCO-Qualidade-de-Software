@@ -15,7 +15,7 @@
 .home-section-title {
   font-size: 2rem;
   font-weight: 600;
-  padding: 20px 20px 50px 0px;
+  padding: 20px 20px 30px 0px;
   color: var(--CorSecundaria);
 }
 
@@ -103,3 +103,44 @@ span {
   font-weight: 600;
   color: #525252;
 }/*# sourceMappingURL=empresas.css.map */
+
+.empresa-content-cards 
+{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.empresa-card 
+{
+  background: #d9dfef;
+  border-radius: 10px;
+  width: 48%;
+  height: 230px;
+  margin: 10px 15px 10px 0px;
+  padding: 15px;
+  display: grid;
+  align-items: center;
+}
+
+.empresa-card span
+{
+  color: var(--CorPrimaria);
+}
+
+button.empresa-btn 
+{
+  cursor: pointer;
+  background: var(--CorPrimaria);
+  padding: 5px;
+  border: none;
+  color: white;
+  font-weight: 400;
+  border-radius: 4px;
+  margin-top: 10px;
+  transition: 0.5s ease-out;
+}
+
+button.empresa-btn:hover
+{
+  background-color: #201f36;
+}
