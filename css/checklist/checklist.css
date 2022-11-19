@@ -61,7 +61,8 @@
 .title-table 
 {
     font-size: 26px;
-    margin: 20px 0px 2em 0px;
+    font-weight: 600;
+    padding: 50px 20px 0px 0px;
     color: var(--CorSecundaria);
 }
 
@@ -241,9 +242,7 @@ select
     height: 120px !important;
     min-width: 100%;
     max-width: 100%;
-
     align-items: center;
-    text-align: center;
 }
 
 #ctx_conformidade_container
@@ -262,11 +261,6 @@ select
     position: absolute;
 }
 
-#ctx_conformidade_container .number
-{
-    transform: translate(8px, 0px);
-    padding-right: 16px;
-}
 
 .cards-content
 {

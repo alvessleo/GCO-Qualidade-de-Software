@@ -87,6 +87,7 @@ input#auditor-new-funcionario {
   color: #fff;
   background-color: #1d1b31;
   height: 45px;
+  width: 100%;
 }
 .home-section .form-funcionario .content form button:hover {
   cursor: pointer;
