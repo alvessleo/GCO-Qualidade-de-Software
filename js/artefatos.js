@@ -151,10 +151,6 @@ document.getElementById("criarArtefatoConfirma").addEventListener("click", (even
 
 });
 
-// checklistsBtn.addEventListener("click", () => 
-// {
-//     popUpChecklist.classList.toggle("active");
-// });
 fecharpopup.addEventListener("click", () => 
  {
     popUpChecklist.classList.remove("active");

@@ -16,7 +16,6 @@ if (!isset($_SESSION['codigo_usuario']))
   <link rel="stylesheet" href="../../css/checklist/checklist.css">
   <link rel="stylesheet" href="../../css/dashboardnavbar/dashboard.css">
   <link rel="stylesheet" href="../../css/dashboard/dashboard.css">
-  <link rel="stylesheet" href="../../css/dashboard/dashboard.css">
   <link rel="stylesheet" href="../../css/minha_empresa/minha_empresa.css">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <script src="https://kit.fontawesome.com/65ea520fa5.js" crossorigin="anonymous"></script>
@@ -25,7 +24,41 @@ if (!isset($_SESSION['codigo_usuario']))
 </head>
 
 <body>
-  <?php carregarComponente('sidebar.php'); ?>
+  <?php carregarComponente('sidebar.php'); 
+  
+    $itens = obterItens($_GET['codigo']);
+    
+    $total_itens = 0;
+    $naoavaliado_itens = 0;
+    $naoatende_itens = 0;
+    $atende_itens = 0;
+    $naoaplica_itens = 0;
+
+    foreach ($itens as $item)
+    {
+
+      switch($item['codigo_estado'])
+      {
+        case 1:
+          ++$naoavaliado_itens;
+          break;
+        case 2:
+          ++$atende_itens;
+          break;
+        case 3:
+          ++$naoatende_itens;
+          break;
+        case 4:
+          ++$naoaplica_itens;
+          break;
+      }
+
+      ++$total_itens;
+    }
+
+    $porcentagem_aderencia = floor((1 - ($naoatende_itens / $total_itens)) * 100);
+  
+  ?>
 
   <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= CONTEÚDO HOME DASHBOARD -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
   
@@ -67,45 +100,44 @@ if (!isset($_SESSION['codigo_usuario']))
 
     <div class="home-section-title">Informações Relevantes</div>
 
+
+
+
     <div class="cards-content">
 
       <div class="cards">
-        <div class="number">15</div>
+        <div id="nc_atende" class="number"><?php echo $atende_itens; ?></div>
         <div class="text-card">Conformidades</div>
       </div>
 
       <div class="cards">
-        <div class="number">5</div>
+        <div class="number"><div id="nc_naoatende" class="number"><?php echo $naoatende_itens; ?></div></div>
         <div class="text-card">Não conformidades</div>
       </div>
 
       <div class="cards">
-        <div class="number">78,5%</div>
-        <div class="text-card">Aderencia</div>
+        <div class="number"><div class="number" id="nc_naoavaliado" ><?php echo $naoavaliado_itens; ?></div></div>
+        <div class="text-card">Não avaliados</div>
       </div>
 
+      <div class="cards">
+        <div class="number"><div class="number" id="nc_naoaplica" ><?php echo $naoaplica_itens; ?></div></div>
+        <div class="text-card">Não pertinentes</div>
+      </div>
+
+      <div id="ctx_conformidade_container">
+        <canvas id="ctx_conformidade"></canvas>
+        <div>
+          <div class="number"><?php echo $porcentagem_aderencia; ?>%</div>
+          <div class="text-card">Aderencia</div>
+        </div>
+      </div>
 
     </div>
 
     <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= CONTEÚDO GRÁFICOS -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
 
-    <div class="graph-opt">
-      <p>Vizualizar Gráfico</p>
-      <button id="conformidades-btn" onclick="graficoConformidades()">Conformidades / Não Conformidades</button>
-      <button id="funcionarios-btn" onclick="graficoFuncionarios()">Funcionarios (N.º Não Conformidades)</button>
-    </div>
-
-    <div class="chart-container active" id="comformidadesGraphic">
-      <canvas id="graphicconform" width="8" height="1"></canvas>
-    </div>
-
-
     <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= CONTEÚDO CHECKLIST -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-
-    <div class="chart-container" id="FuncionariosGraphic">
-      <canvas id="graphicbars" width="8" height="1"></canvas>
-    </div>
-
 
     <?php $auditor = eAuditorChecklist($_SESSION['codigo_usuario'], $_GET['codigo']); ?>
 
@@ -130,7 +162,7 @@ if (!isset($_SESSION['codigo_usuario']))
                 <tbody>
                     <?php 
                     $contador = 1;
-                    foreach (obterItens($_GET['codigo']) as $item)
+                    foreach ($itens as $item)
                     {
                       echo '<tr id="tr_'.$item['codigo_itemChecklist'].'">
                           <td>' . $contador++ . '</td>

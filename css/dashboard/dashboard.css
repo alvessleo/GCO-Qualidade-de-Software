@@ -48,13 +48,13 @@
     border-radius: 8px;
 }
 
-.cards .number 
+.number 
 {
     font-size: 45px;
     color: var(--CorPrimaria);
 }
 
-.cards .text-card 
+.text-card 
 {
     position: relative;
     bottom: 5px;

@@ -241,4 +241,35 @@ select
     height: 120px !important;
     min-width: 100%;
     max-width: 100%;
+
+    align-items: center;
+    text-align: center;
+}
+
+
+#ctx_conformidade_container
+{
+    height: 12em;
+    width: 12em;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+    margin: -2.5em -1em;
+}
+
+#ctx_conformidade_container canvas
+{
+    position: absolute;
+}
+
+#ctx_conformidade_container .number
+{
+    transform: translate(8px, 0px);
+    padding-right: 16px;
+}
+
+.cards-content
+{
+    justify-content: left !important;
 }

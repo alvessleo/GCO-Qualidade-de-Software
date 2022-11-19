@@ -121,3 +121,51 @@ document.getElementById("form-funcionario-mesmo").addEventListener("submit", (ev
 
 	});
 });
+
+
+const ctx_conformidade = document.getElementById('ctx_conformidade');
+
+
+let dados = {};
+
+dados['nc_atende'] = document.getElementById("nc_atende").innerHTML;
+dados['nc_naoatende'] = document.getElementById("nc_naoatende").innerText;
+dados['nc_naoavaliado'] = document.getElementById("nc_naoavaliado").innerText;
+dados['nc_naoaplica'] = document.getElementById("nc_naoaplica").innerText;
+
+
+console.log(dados);
+const data = {
+	labels: [
+	  'Atende',
+	  'Não atende',
+	  'Não avaliado',
+	  'Não se aplica',
+	],
+	datasets: [{
+	  label: 'My First Dataset',
+	  data: [dados['nc_atende'], dados['nc_naoatende'], dados['nc_naoavaliado'], dados['nc_naoaplica']],
+	  backgroundColor: [
+		'#2f2d4a',
+		'#ff8d00',
+		'#625f81',
+		'#625f81'
+	  ],
+	  hoverOffset: 4
+	}]
+};
+
+const config = {
+	type: 'doughnut',
+	options: {
+		cutout: 75,
+        plugins: {
+            legend: {
+                display: false
+            },
+        }
+	  },
+	data: data,
+};
+
+let graficao = new Chart(ctx_conformidade, config);
